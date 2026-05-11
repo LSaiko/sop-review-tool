@@ -39,7 +39,7 @@ See [`examples/`](./examples/) for reference SOPs and [`validation/`](./validati
 | **Device Class Stringency** | Class I / II / III adjusts review rigor and scoring thresholds |
 | **Color-coded PDF Report** | Green (PRESENT) / Amber (INCOMPLETE) / Red (MISSING) with overall GMP readiness badge |
 | **Structured JSON Extraction** | Claude returns structured data — no hallucinated prose, parseable output |
-| **Input Formats** | `.txt` and `.docx` supported |
+| **Input Formats** | `.txt`, `.docx`, and `.pdf` supported (text-based PDFs; scanned/image PDFs are not supported) |
 | **Extensible Checklists** | Add organization-specific checklist items directly in `sop_review.py` |
 
 ---
@@ -107,7 +107,16 @@ python sop_review.py \
   --sop-type inspection \
   --device-class III \
   --output mako_review_report.pdf
+
+# Review a PDF SOP directly
+python sop_review.py \
+  --file my_sop.pdf \
+  --sop-type manufacturing \
+  --device-class II \
+  --output my_sop_report.pdf
 ```
+
+> **PDF note:** The tool uses `pdfplumber` for text extraction. Text-based (digitally created) PDFs work well. Scanned or image-only PDFs are not supported — convert them with OCR software first.
 
 ---
 
@@ -119,7 +128,7 @@ python sop_review.py --file PATH --device-class {I,II,III} --sop-type TYPE [--ou
 
 | Argument | Required | Values | Description |
 |---|---|---|---|
-| `--file` | Yes | path | SOP file (`.txt` or `.docx`) |
+| `--file` | Yes | path | SOP file (`.txt`, `.docx`, or `.pdf`) |
 | `--device-class` | Yes | `I` `II` `III` | FDA device class — adjusts review stringency |
 | `--sop-type` | Yes | `manufacturing` `calibration` `cleaning` `inspection` `complaint` | Loads the appropriate checklist |
 | `--output` | No | path | PDF output path (default: `./sop_review_report.pdf`) |
@@ -209,7 +218,8 @@ sop_review.py
 
 **Model:** `claude-sonnet-4-6`  
 **System prompt:** Senior FDA compliance specialist persona (15 years QMS experience)  
-**Output format:** Structured JSON with per-item `status`, `evidence` quote, and `recommendation`
+**Output format:** Structured JSON with per-item `status`, `evidence` quote, and `recommendation`  
+**PDF parsing:** `pdfplumber` with layout-preserving text extraction (`layout=True`)
 
 ---
 
@@ -221,6 +231,7 @@ sop_review.py
 | **Static checklist** | The checklist reflects 21 CFR Part 820 as of 2024. FDA may issue new guidance at any time. |
 | **No 21 CFR Part 4 / QSR-to-QMSR transition** | The tool does not yet cover the updated QMSR (Quality Management System Regulation) effective February 2026. |
 | **English-language SOPs only** | Multi-language documents are not tested. |
+| **Text-based PDFs only** | Scanned / image-only PDFs will raise an error. Use OCR (e.g., Adobe Acrobat, Tesseract) to convert to searchable PDF before submitting. |
 | **No cross-document validation** | Referenced SOPs and forms are not fetched or verified. |
 
 ---

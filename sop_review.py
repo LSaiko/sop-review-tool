@@ -18,6 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 import anthropic
+import pdfplumber
 from docx import Document
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
@@ -284,8 +285,18 @@ def read_sop_file(file_path: str) -> str:
     elif suffix == ".docx":
         doc = Document(str(path))
         return "\n".join(para.text for para in doc.paragraphs)
+    elif suffix == ".pdf":
+        pages = []
+        with pdfplumber.open(str(path)) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text(layout=True)
+                if text:
+                    pages.append(text)
+        if not pages:
+            raise ValueError(f"No extractable text found in '{file_path}'. The PDF may be scanned/image-only.")
+        return "\n\n".join(pages)
     else:
-        raise ValueError(f"Unsupported file type '{suffix}'. Use .txt or .docx.")
+        raise ValueError(f"Unsupported file type '{suffix}'. Use .txt, .docx, or .pdf.")
 
 
 # ---------------------------------------------------------------------------
@@ -766,13 +777,14 @@ def parse_args() -> argparse.Namespace:
 Examples:
   python sop_review.py --file sample_sop.txt --sop-type cleaning --device-class II
   python sop_review.py --file my_mfg_sop.docx --sop-type manufacturing --device-class III --output report.pdf
+  python sop_review.py --file stryker_mako_sop.pdf --sop-type inspection --device-class III --output mako_report.pdf
         """,
     )
     parser.add_argument(
         "--file",
         required=True,
         metavar="PATH",
-        help="Path to the SOP file (.txt or .docx)",
+        help="Path to the SOP file (.txt, .docx, or .pdf)",
     )
     parser.add_argument(
         "--output",
