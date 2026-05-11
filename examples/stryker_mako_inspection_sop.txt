@@ -1,0 +1,325 @@
+STANDARD OPERATING PROCEDURE
+Document Number:  SOP-QC-MAK-042
+Title:            Incoming Inspection of Mako RIO Robotic Arm Subassembly Components
+Department:       Quality Control / Receiving Inspection
+Effective Date:   2024-06-01
+Revision:         C
+
+-------------------------------------------------------------------------------
+1. PURPOSE
+-------------------------------------------------------------------------------
+This procedure defines the incoming inspection requirements for Mako RIO
+Robotic Intelligent Orthopaedic (RIO) robotic arm subassembly components
+received from contract manufacturers, to verify dimensional conformance,
+surface integrity, and labeling accuracy prior to acceptance into inventory
+and subsequent assembly into the Mako SmartRobotics surgical system.
+
+-------------------------------------------------------------------------------
+2. SCOPE
+-------------------------------------------------------------------------------
+This SOP applies to all incoming lots of the following Mako RIO subassembly
+components:
+  - Robotic arm link castings (Part Nos. MK-ARM-101 through MK-ARM-106)
+  - Force/torque sensor modules (Part No. MK-FTS-220)
+  - End-effector coupling assemblies (Part No. MK-EFC-310)
+
+It covers activities performed in Receiving Inspection Area RI-02, Building 3,
+by QC Inspection Technicians and QC Engineers assigned to the Mako product line.
+This SOP does not apply to software-only components or to field service
+replacement parts (see SOP-QC-MAK-055).
+
+The Mako RIO system is a Class III medical device (510(k) K163360; PMA
+supplement P150002/S017). All inspection activities are subject to the highest
+level of 21 CFR Part 820 scrutiny.
+
+-------------------------------------------------------------------------------
+3. RESPONSIBILITIES
+-------------------------------------------------------------------------------
+QC Inspection Technician:
+  - Performs all receiving inspection steps per this SOP.
+  - Completes Incoming Inspection Record (Form QC-IIR-042) for each lot.
+  - Places disposition tags on accepted and rejected containers.
+  - Escalates any borderline or ambiguous findings to the QC Engineer.
+
+QC Engineer (Mako Product Line):
+  - Reviews and approves completed Incoming Inspection Records.
+  - Makes final accept/reject disposition for borderline lots.
+  - Initiates Non-Conformance Reports (NCRs) per SOP-QC-NCR-001 for
+    rejected lots.
+  - Authorizes any inspection deviations or concessions in writing.
+
+QA Manager:
+  - Approves this SOP and all revisions.
+  - Reviews NCR trends quarterly and initiates CAPA when systemic issues
+    are identified (SOP-QA-CAPA-007).
+
+Receiving / Materials Management:
+  - Quarantines incoming lots in the designated hold area until disposition
+    is complete.
+  - Does not release material to the production floor without a signed
+    Incoming Inspection Record indicating ACCEPT disposition.
+
+-------------------------------------------------------------------------------
+4. REFERENCES
+-------------------------------------------------------------------------------
+Regulatory
+  - 21 CFR Part 820, Subpart E (Purchasing Controls)
+  - 21 CFR 820.50 (Purchasing Controls)
+  - 21 CFR 820.80 (Receiving, In-Process, and Finished Device Acceptance)
+  - 21 CFR 820.80(b) (Incoming Component Acceptance Activities)
+  - 21 CFR 820.80(c) (Sampling Procedures)
+  - 21 CFR 820.80(d) (Acceptance Criteria)
+  - 21 CFR 820.86 (Acceptance Status)
+  - 21 CFR 820.72 (Inspection, Measuring, and Test Equipment)
+  - 21 CFR 803 (Medical Device Reporting)
+
+Standards
+  - ANSI/ASQ Z1.4-2008: Sampling Procedures and Tables for Inspection by
+    Attributes
+  - ISO 13485:2016, Section 8.4 (Control of Externally Provided Processes,
+    Products, and Services)
+  - ASME B46.1-2019 (Surface Texture)
+  - GD&T per ASME Y14.5-2018
+
+Internal Documents
+  - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
+  - SOP-QA-CAPA-007: Corrective and Preventive Action
+  - SOP-CAL-003: Calibration Program for Measuring and Test Equipment
+  - SOP-QC-MAK-010: Mako Supplier Qualification and Approved Supplier List
+  - Engineering Drawing Package: DWG-MAK-ARM-101-C (and series)
+  - Material Specification: MSPEC-SS316L-001 (316L Stainless Steel)
+  - Component Acceptance Criteria: CAC-MAK-042, Rev. C
+
+-------------------------------------------------------------------------------
+5. DEFINITIONS AND ABBREVIATIONS
+-------------------------------------------------------------------------------
+AQL       Acceptable Quality Level — maximum percentage of defective units
+          considered satisfactory as a process average
+CMM       Coordinate Measuring Machine
+CoC       Certificate of Conformance — supplier document attesting that a
+          lot meets specified requirements
+DHR       Device History Record
+DRB       Disposition Review Board
+FTS       Force/Torque Sensor
+GD&T      Geometric Dimensioning and Tolerancing
+IIR       Incoming Inspection Record
+LOTO      Lockout/Tagout
+NCR       Non-Conformance Report
+PPE       Personal Protective Equipment
+QA        Quality Assurance
+QC        Quality Control
+RIO       Robotic Intelligent Orthopaedic
+SOP       Standard Operating Procedure
+UOM       Unit of Measure
+
+-------------------------------------------------------------------------------
+6. MATERIALS AND EQUIPMENT
+-------------------------------------------------------------------------------
+6.1  Measurement and Test Equipment (all must have current calibration sticker
+     per SOP-CAL-003; do NOT use equipment with expired calibration)
+     - Brown & Sharpe Global Classic CMM, serial no. BSG-1142
+       (calibration due per SOP-CAL-003 schedule; located in Metrology Lab M-01)
+     - Mitutoyo digital micrometer set, 0–4 in. (Cal. Tag: MIT-0042)
+     - Starrett 12-in. digital height gauge (Cal. Tag: STR-0019)
+     - Mitutoyo surface roughness tester SJ-210 (Cal. Tag: MIT-0088)
+     - Calibrated torque wrench, 5–50 N·m range (Cal. Tag: TRQ-0007)
+     - Digital force gauge, 0–500 N (Cal. Tag: DFG-0031)
+
+6.2  Reference Documents and Tools
+     - Applicable engineering drawing (DWG-MAK-ARM-101-C series) — printed
+       controlled copies in Metrology Lab binder MK-DWG-042
+     - Component Acceptance Criteria document CAC-MAK-042, Rev. C
+     - ANSI/ASQ Z1.4 sampling tables (posted in RI-02)
+     - Incoming Inspection Record form QC-IIR-042 (current revision)
+     - Non-Conformance Report form QC-NCR-001
+
+6.3  Consumables and Supplies
+     - Cleanroom-grade lint-free wipes
+     - Nitrile gloves, powder-free
+     - Isopropyl alcohol (70% IPA, USP Grade) for surface cleaning prior to
+       dimensional inspection
+     - Red "HOLD / QUARANTINE" labels and green "ACCEPTED — QC" labels
+     - Tamper-evident seals for accepted containers
+
+-------------------------------------------------------------------------------
+7. SAFETY PRECAUTIONS AND PPE
+-------------------------------------------------------------------------------
+7.1  Required PPE
+     - Powder-free nitrile gloves (mandatory — bare hands contaminate
+       precision surfaces and may cause corrosion on stainless steel)
+     - Safety glasses when handling components with sharp edges (link castings)
+     - Steel-toed shoes in the Receiving Inspection area at all times
+
+7.2  Handling Precautions
+     - Robotic arm link castings may weigh up to 8 kg. Use two-person lift
+       technique or approved lifting fixture LFT-MK-001 for components >5 kg.
+     - Force/torque sensor modules (MK-FTS-220) contain sensitive piezoelectric
+       elements. Do NOT drop or subject to mechanical shock. Handle with both
+       hands; place on foam-lined tray only.
+     - Do not use metallic tools directly on finished surfaces. Use only
+       plastic or rubber-tipped tools when repositioning components on the CMM.
+
+7.3  Chemical Hazards
+     - IPA used for surface prep is flammable. Keep away from ignition sources.
+     - SDS for IPA is posted at the chemical storage station in RI-02.
+
+-------------------------------------------------------------------------------
+8. PROCEDURE
+-------------------------------------------------------------------------------
+
+STEP 1 — Receiving and Quarantine Verification
+         1.1  Upon receipt of a shipment, confirm that the shipment is placed
+              in the designated Quarantine Hold area (yellow floor marking,
+              RI-02 north wall) by Receiving personnel.
+         1.2  Verify a red "HOLD / QUARANTINE" label is affixed to each pallet
+              or container. If missing, affix immediately and notify the
+              QC Engineer.
+         1.3  Do not begin inspection until the lot is quarantined and a
+              purchase order (PO) number is confirmed in the ERP system.
+
+STEP 2 — Document and Lot Verification
+         2.1  Retrieve the supplier's Certificate of Conformance (CoC) and
+              packing slip from the shipment.
+         2.2  Verify the following against the PO and CoC:
+              a) Part number and revision level (must match PO exactly)
+              b) Lot or batch number (record on IIR Form QC-IIR-042)
+              c) Quantity received vs. quantity on PO (note any discrepancy)
+              d) Supplier name and Approved Supplier List status
+                 (verify against SOP-QC-MAK-010 Approved Supplier List)
+         2.3  If any discrepancy is found in Step 2.2, place the lot on HOLD,
+              contact the QC Engineer, and do not proceed until resolved.
+
+STEP 3 — Sample Selection (per ANSI/ASQ Z1.4)
+         3.1  Determine lot size (N) from the packing slip or physical count.
+         3.2  Using ANSI/ASQ Z1.4, Inspection Level II, AQL 1.0 for critical
+              dimensions and AQL 4.0 for visual/cosmetic attributes:
+              - Look up the appropriate sample size code letter for lot size N.
+              - Record the sample size (n) on Form QC-IIR-042.
+         3.3  Select samples using systematic random sampling (every k-th unit,
+              where k = N/n, rounded to the nearest integer). Samples must be
+              drawn from throughout the lot, not only from the top layer.
+         3.4  Label each sample with a temporary ID tag (e.g., S-01, S-02…)
+              and record tag-to-serial-number mapping on Form QC-IIR-042.
+
+STEP 4 — Visual and Surface Inspection
+         4.1  Inspect each sample under diffuse white light (minimum 1,000 lux)
+              for the following cosmetic defects. Record findings on
+              Form QC-IIR-042 using the accept/reject criteria in
+              CAC-MAK-042, Rev. C, Section 3 (Visual Criteria):
+              a) Burrs, sharp edges, or machining marks on non-functional surfaces
+              b) Corrosion, pitting, or discoloration inconsistent with
+                 316L stainless specification MSPEC-SS316L-001
+              c) Scratches, gouges, or dents exceeding allowable limits
+                 (>0.1 mm depth on product-contact surfaces = reject)
+              d) Incorrect, illegible, or missing part markings or lot codes
+         4.2  For components with surface finish requirements per drawing
+              (Ra ≤ 0.8 µm on product-contact surfaces), measure Ra using
+              the Mitutoyo SJ-210 roughness tester.
+              - Record Ra values on Form QC-IIR-042.
+              - Any measurement exceeding the drawing tolerance = reject that
+                sample.
+
+STEP 5 — Dimensional Inspection (CMM)
+         5.1  Transport selected samples to Metrology Lab M-01. Confirm
+              CMM BSG-1142 calibration sticker is current before use.
+         5.2  Retrieve the applicable engineering drawing (DWG-MAK-ARM-101-C
+              or applicable series) from the controlled binder.
+         5.3  Measure all features designated as "Critical" (△ symbol on
+              drawing) and "Major" (● symbol) per the GD&T callouts using the
+              established CMM program (file: MAK_ARM_101_Rev_C.prg).
+         5.4  Record all measured values on Form QC-IIR-042, Section 4
+              (Dimensional Data). Note drawing tolerance for each feature.
+         5.5  Any single Critical feature outside tolerance = automatic lot
+              reject. Any Major feature outside tolerance on two or more
+              samples = lot reject (apply AQL 1.0 accept/reject numbers).
+
+STEP 6 — Force/Torque Sensor Functional Check (MK-FTS-220 only)
+         6.1  This step applies to Part No. MK-FTS-220 only. Skip for
+              MK-ARM-101 through MK-ARM-106 and MK-EFC-310.
+         6.2  Using calibrated digital force gauge (DFG-0031), apply a
+              controlled axial load of 100 N ± 2 N to the sensor mounting
+              face.
+         6.3  Verify sensor output via the Mako bench-test interface
+              (MBT-Tool v2.3) reads within ±1.5% of applied load.
+         6.4  Record applied load, sensor output, and percent deviation on
+              Form QC-IIR-042, Section 5.
+         6.5  Any deviation >±1.5% = reject that sensor unit; apply AQL
+              reject criteria across the sample set.
+
+STEP 7 — Disposition Decision
+         7.1  Compare all recorded inspection results against acceptance
+              criteria in CAC-MAK-042, Rev. C.
+         7.2  If the lot PASSES all criteria:
+              - Mark Form QC-IIR-042 "ACCEPT."
+              - Affix green "ACCEPTED — QC" label to each container.
+              - Remove red HOLD labels.
+              - QC Engineer signs Form QC-IIR-042 to authorize release.
+              - Notify Receiving/Materials to transfer lot to approved stock.
+         7.3  If the lot FAILS any criteria:
+              - Mark Form QC-IIR-042 "REJECT."
+              - Maintain red HOLD labels; do NOT remove material from
+                quarantine area.
+              - QC Engineer initiates NCR per SOP-QC-NCR-001 within 24 hours.
+              - Rejected lots are dispositioned per NCR process
+                (scrap, return to supplier, or DRB concession review).
+         7.4  QC Engineer reviews and countersigns Form QC-IIR-042 for
+              every lot regardless of disposition.
+
+STEP 8 — Documentation Filing
+         8.1  File original signed IIR Form QC-IIR-042 in the Incoming
+              Inspection binder for the applicable lot in the QC Records
+              Room (Building 3, Room 301).
+         8.2  Scan and upload a copy to the Electronic Document Management
+              System (EDMS) under the DHR folder for the applicable PO.
+         8.3  Retain Incoming Inspection Records per 21 CFR 820.180:
+              minimum of 2 years beyond the expected device useful life or
+              the life of the device, whichever is longer.
+
+-------------------------------------------------------------------------------
+9. DOCUMENTATION AND RECORDS
+-------------------------------------------------------------------------------
+Form QC-IIR-042  Incoming Inspection Record (current revision from EDMS)
+                 Completed for every incoming lot; retained in DHR per
+                 21 CFR 820.180. Minimum retention: device useful life + 2 years.
+
+NCR (Form QC-NCR-001)
+                 Initiated for every rejected lot within 24 hours of rejection.
+                 Tracked to closure per SOP-QC-NCR-001.
+
+CMM Data Files   Raw CMM output files archived to network drive \\QC-SRV-01\CMM\
+                 under folder hierarchy: \Mako\ARM\[Lot Number]\[Date]\.
+                 Retained for minimum 5 years.
+
+CoC and Packing Slip
+                 Originals retained with IIR Form QC-IIR-042 in QC Records Room.
+
+-------------------------------------------------------------------------------
+10. REVISION HISTORY
+-------------------------------------------------------------------------------
+Rev  Date        Author              Change Summary
+---  ----------  ------------------  ------------------------------------------
+A    2021-09-10  J. Patterson, QCE   Initial release
+B    2022-11-30  M. Torres, QCE      Added FTS functional check (Step 6);
+                                     updated AQL from 2.5 to 1.0 for critical
+                                     dimensions per DRB action item DRB-2022-041
+C    2024-06-01  S. Kim, QC Mgr      Updated CMM program reference to Rev_C;
+                                     added MK-EFC-310 to scope; updated
+                                     retention statement to align with
+                                     21 CFR 820.180 amendment
+
+-------------------------------------------------------------------------------
+APPROVAL SIGNATURES
+-------------------------------------------------------------------------------
+Prepared by:  _________________________    Date: __________
+              S. Kim, QC Manager
+
+Reviewed by:  _________________________    Date: __________
+              R. Nguyen, Regulatory Affairs Specialist
+
+Approved by:  _________________________    Date: __________
+              T. Okafor, VP Quality Assurance
+
+-------------------------------------------------------------------------------
+** END OF DOCUMENT **
+** SOP-QC-MAK-042 Rev. C **
+-------------------------------------------------------------------------------
