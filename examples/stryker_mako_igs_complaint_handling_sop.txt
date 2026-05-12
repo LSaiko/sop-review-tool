@@ -1,0 +1,307 @@
+STANDARD OPERATING PROCEDURE
+Document Number:  SOP-QA-CX-091
+Title:            Customer Complaint Intake, Investigation, and MDR Reportability
+                  Assessment for Mako SmartRobotics and IGS Navigation Systems
+Department:       Post-Market Surveillance / Quality Assurance
+Effective Date:   2025-03-01
+Revision:         D
+
+-------------------------------------------------------------------------------
+1. PURPOSE
+-------------------------------------------------------------------------------
+This procedure establishes the requirements for receiving, documenting,
+investigating, and determining Medical Device Report (MDR) reportability for
+customer complaints related to the Stryker Mako SmartRobotics Surgical System
+and Stryker Navigation System 2.0 (IGS). It ensures compliance with 21 CFR
+Part 820.198 and 21 CFR Part 803 (Medical Device Reporting).
+
+-------------------------------------------------------------------------------
+2. SCOPE
+-------------------------------------------------------------------------------
+This SOP applies to all complaints received by Quality Assurance from any
+source (phone, email, field service reports, sales representatives, health
+care facilities, patients, or regulatory authorities) regarding:
+  - Stryker Mako SmartRobotics System (PMA P150002 and supplements)
+  - Stryker Navigation System 2.0 (510(k) K201847)
+
+A complaint is defined as: any written, electronic, or oral communication
+that alleges deficiencies related to the identity, quality, durability,
+reliability, safety, effectiveness, or performance of a device after it
+is released for distribution (21 CFR 820.3(b)).
+
+This SOP does not cover internal non-conformances (see SOP-QC-NCR-001)
+or supplier complaints (see SOP-PUR-SUP-005). Pre-market feedback is
+handled under SOP-QA-DFMEA-002.
+
+-------------------------------------------------------------------------------
+3. RESPONSIBILITIES
+-------------------------------------------------------------------------------
+Complaint Intake Coordinator (CIC):
+  - Receives and logs all incoming complaints within 24 hours of receipt.
+  - Completes the initial Complaint Record (Form QA-CX-091) in the
+    complaint management system (CMS: Pilgrim SmartSolve).
+  - Assigns complaint to the appropriate Product Line QA Engineer for
+    investigation within 1 business day.
+  - Sends acknowledgment to the complainant within 2 business days of receipt.
+
+Product Line QA Engineer (QAE):
+  - Conducts or coordinates the technical investigation.
+  - Completes the MDR Reportability Assessment (Form QA-MDR-003) within
+    5 business days of complaint assignment.
+  - Notifies the QA Manager immediately if the complaint is potentially MDR-
+    reportable (serious injury, malfunction with potential for serious injury,
+    or death).
+  - Closes complaint within 30 calendar days (or documents justified extension).
+
+QA Manager:
+  - Reviews all MDR Reportability Assessments.
+  - Makes final MDR reportability determination.
+  - Signs and submits MDR to FDA within regulatory timelines (see Section 8.4).
+  - Approves this SOP and all revisions.
+  - Monitors complaint closure metrics and initiates CAPA for trends per
+    SOP-QA-CAPA-007.
+
+Field Service Engineer (FSE):
+  - Documents field observations and device condition in the field service
+    report (FSR) and forwards to the CIC within 2 business days of site visit.
+
+-------------------------------------------------------------------------------
+4. REFERENCES
+-------------------------------------------------------------------------------
+Regulatory
+  - 21 CFR Part 820.198 (Complaint Files)
+  - 21 CFR Part 820.198(a) (Receipt of complaints)
+  - 21 CFR Part 820.198(d) (MDR consideration and investigation)
+  - 21 CFR Part 820.198(e) (Investigation records)
+  - 21 CFR Part 803 (Medical Device Reporting)
+  - 21 CFR Part 803.50 (Individual adverse event reports — manufacturers)
+  - 21 CFR Part 803.53 (Five-day reports)
+  - FDA Guidance: "Medical Device Reporting for Manufacturers" (2016)
+  - FDA Guidance: "Distinguishing Medical Device Recalls from Product Enhancements"
+
+Standards
+  - ISO 13485:2016, Section 8.2.2 (Complaint Handling)
+  - ISO 14971:2019 (Risk Management for Medical Devices)
+  - MedWatch Form FDA 3500A
+
+Internal Documents
+  - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
+  - SOP-QA-CAPA-007: Corrective and Preventive Action
+  - SOP-QA-MDR-001: Medical Device Reporting — MDR Submission Procedure
+  - Form QA-CX-091: Complaint Record (in Pilgrim SmartSolve CMS)
+  - Form QA-MDR-003: MDR Reportability Assessment
+  - Risk Management File: RMF-MAK-001 (Mako), RMF-IGS-001 (Navigation)
+
+-------------------------------------------------------------------------------
+5. DEFINITIONS AND ABBREVIATIONS
+-------------------------------------------------------------------------------
+CAPA      Corrective and Preventive Action
+CIC       Complaint Intake Coordinator
+CMS       Complaint Management System (Pilgrim SmartSolve)
+FSE       Field Service Engineer
+FSR       Field Service Report
+MDR       Medical Device Report — mandatory FDA report for certain adverse events
+PMS       Post-Market Surveillance
+QAE       Product Line QA Engineer
+RCA       Root Cause Analysis
+SOP       Standard Operating Procedure
+
+MDR-Reportable Event: Any event for which a manufacturer becomes aware that
+one of its devices may have caused or contributed to a serious injury,
+malfunction with potential for serious injury, or death (21 CFR 803.50(a)).
+
+Malfunction: The failure of a device to meet its performance specifications
+or otherwise perform as intended (21 CFR 803.3).
+
+-------------------------------------------------------------------------------
+6. MATERIALS AND EQUIPMENT
+-------------------------------------------------------------------------------
+6.1  Systems and Databases
+     - Pilgrim SmartSolve CMS — primary complaint tracking system
+       (URL: internal QNET portal; access requires QA role in Active Directory)
+     - FDA MedWatch Online Reporting System (for MDR submission when required)
+
+6.2  Forms (current revisions from EDMS)
+     - Form QA-CX-091: Complaint Record
+     - Form QA-MDR-003: MDR Reportability Assessment and Decision Tree
+     - MedWatch Form FDA 3500A (MDR submission form)
+
+6.3  Reference Tools
+     - MDR Reportability Decision Tree (Appendix A of this SOP)
+     - Product Risk Management Files: RMF-MAK-001, RMF-IGS-001
+       (consulted during reportability assessment to determine severity of
+       potential harm associated with the reported malfunction)
+
+-------------------------------------------------------------------------------
+7. SAFETY PRECAUTIONS
+-------------------------------------------------------------------------------
+7.1  Confidentiality
+     - Complaint information involving patient identifiers is subject to HIPAA.
+       Do not include patient name, date of birth, or other PHI in complaint
+       records unless encrypted and transmitted per IT Security SOP-IT-SEC-003.
+     - Patient-identifiable information in MDR submissions to FDA is handled
+       per 21 CFR 803.9 (confidentiality of patient information).
+
+7.2  Returned Device Handling
+     - If a device is returned for investigation, route to the Incoming
+       Inspection area under quarantine and initiate a non-conforming product
+       tag per SOP-QC-NCR-001 before any disassembly or testing.
+     - Do not repair or dispose of a returned device under investigation
+       without written approval from the QA Manager.
+
+-------------------------------------------------------------------------------
+8. PROCEDURE
+-------------------------------------------------------------------------------
+
+STEP 1 — Complaint Receipt and Logging (CIC, within 24 hours)
+         1.1  All complaint contacts (phone, email, FSR, regulatory authority
+              letter) are routed to the CIC mailbox: complaints@[company].com
+              or extension 4400.
+         1.2  CIC opens a new Complaint Record in Pilgrim SmartSolve
+              (Form QA-CX-091) within 24 hours of receiving the contact.
+         1.3  Record the following minimum data elements:
+              a) Date of receipt and date of event (if known)
+              b) Complainant name, facility, and contact information
+              c) Device model, serial number, lot number, and software version
+              d) Detailed description of the complaint as reported
+              e) Patient information (de-identified per HIPAA, if applicable)
+              f) Whether a serious injury or death is alleged (flag immediately
+                 if yes; notify QA Manager within 1 hour)
+         1.4  Assign a unique complaint number (auto-generated by SmartSolve).
+         1.5  CIC sends written acknowledgment to complainant within 2 business
+              days of receipt (template: EmailTemplate-ACKMT-001 in EDMS).
+
+STEP 2 — Initial Triage and Assignment (CIC, within 1 business day)
+         2.1  CIC reviews the complaint description and flags the primary
+              device family: Mako or IGS Navigation.
+         2.2  Assign complaint to the applicable Product Line QAE in SmartSolve.
+         2.3  If the complaint alleges serious injury, malfunction potentially
+              causing serious injury, or patient death:
+              - Flag complaint as "POTENTIAL MDR" in SmartSolve
+              - Notify QA Manager and Product Line QAE by phone immediately
+              - The 30-day MDR clock begins at complaint receipt date
+              (Note: Five-day MDR clock begins if the event requires remedial
+              action to prevent unreasonable risk; notify QA Manager to assess)
+
+STEP 3 — Technical Investigation (QAE, within 15 calendar days of assignment)
+         3.1  QAE reviews all available information: complaint description,
+              FSR (if available), device service history, and prior complaints
+              for the same device serial number in SmartSolve.
+         3.2  If a returned device is available:
+              a) Retrieve from quarantine; confirm condition before testing
+              b) Perform functional testing per the applicable test protocol
+                 (TP-MAK-FT-001 for Mako; TP-IGS-FT-001 for Navigation)
+              c) Document test results in the Complaint Record
+         3.3  Conduct Root Cause Analysis (RCA) using at minimum a
+              fishbone/Ishikawa diagram or 5-Why analysis. Document RCA
+              findings in the Complaint Record.
+         3.4  Determine probable root cause category from the following:
+              - Operator/use error
+              - Device malfunction
+              - Software issue
+              - Installation/setup error
+              - Environmental factor
+              - No defect found / unable to reproduce (NDF/UTR)
+
+STEP 4 — MDR Reportability Assessment (QAE, within 5 business days of assignment)
+         4.1  QAE completes Form QA-MDR-003 (MDR Reportability Assessment)
+              using the decision tree in Appendix A of this SOP.
+         4.2  Three-question MDR reportability screen (per 21 CFR 803.50):
+              Q1: Did the device malfunction? (Y/N)
+              Q2: If the malfunction recurred, could it cause or contribute
+                  to a serious injury? Consult RMF-MAK-001 or RMF-IGS-001
+                  for applicable hazard severity ratings. (Y/N)
+              Q3: Did the device cause or contribute to a serious injury
+                  or death? (Y/N)
+              If Q3 = Yes OR (Q1 = Yes AND Q2 = Yes): complaint is MDR-reportable.
+         4.3  QAE submits completed Form QA-MDR-003 to QA Manager for review.
+         4.4  QA Manager reviews assessment and makes final determination:
+              - MDR REQUIRED: QA Manager initiates MDR submission per
+                SOP-QA-MDR-001 within 30 days of becoming aware of the event
+                (or 5 days if a five-day report is triggered)
+              - MDR NOT REQUIRED: Document rationale in Form QA-MDR-003;
+                QA Manager signs and retains in Complaint Record
+
+STEP 5 — Complaint Closure (QAE, within 30 calendar days)
+         5.1  Confirm all investigation steps are complete; verify Form
+              QA-MDR-003 is signed by QA Manager.
+         5.2  Document corrective actions or recommendations in the
+              Complaint Record (customer follow-up, field safety notice,
+              labeling update, CAPA initiation, etc.).
+         5.3  If a systemic issue is identified (same root cause in ≥3
+              complaints within 12 months), initiate CAPA per SOP-QA-CAPA-007;
+              link CAPA number to the Complaint Record in SmartSolve.
+         5.4  QAE closes the complaint in SmartSolve. QA Manager reviews
+              and approves closure.
+         5.5  If the complaint cannot be closed within 30 days, QAE documents
+              the justified reason for extension in SmartSolve and provides
+              a revised target closure date (maximum extension: 60 additional
+              calendar days without QA Director approval).
+
+STEP 6 — Complainant Response
+         6.1  Upon closure, CIC sends a final response letter to the
+              complainant summarizing findings and corrective actions taken,
+              unless the complainant is anonymous or has opted out of follow-up.
+              (Template: EmailTemplate-CLOSURE-001 in EDMS.)
+         6.2  Do not disclose proprietary investigation details, MDR
+              submission status, or regulatory correspondence in complainant
+              response letters without QA Manager approval.
+
+-------------------------------------------------------------------------------
+9. DOCUMENTATION AND RECORDS
+-------------------------------------------------------------------------------
+Form QA-CX-091  Complaint Record in Pilgrim SmartSolve CMS.
+                All fields must be completed before complaint closure.
+                Retained per 21 CFR 820.198(f): minimum device useful life + 2
+                years, not less than 5 years from date of manufacture.
+
+Form QA-MDR-003 MDR Reportability Assessment.
+                Completed for every complaint with a potential adverse event.
+                Retained with Complaint Record (same retention period).
+
+MDR Submission (MedWatch 3500A)
+                Copy of submitted MDR filed in complaint record and in the
+                MDR Submission Log (maintained by QA Manager per SOP-QA-MDR-001).
+                Retained per 21 CFR 803.18: minimum 2 years from date of
+                submission.
+
+Acknowledgment and Closure Letters
+                Filed in SmartSolve under the complaint record.
+
+CAPA Records    Linked in SmartSolve; governed by SOP-QA-CAPA-007.
+
+-------------------------------------------------------------------------------
+10. REVISION HISTORY
+-------------------------------------------------------------------------------
+Rev  Date        Author              Change Summary
+---  ----------  ------------------  ------------------------------------------
+A    2020-06-01  B. Walsh, QA Mgr    Initial release
+B    2021-08-15  B. Walsh, QA Mgr    Added FSE documentation requirements;
+                                     updated CMS from TrackWise to Pilgrim
+                                     SmartSolve
+C    2023-02-28  L. Chen, Sr. QAE    Added IGS Navigation System 2.0 to scope;
+                                     updated MDR decision tree per FDA 2022
+                                     Q&A guidance; added five-day MDR trigger
+                                     language (Step 2.3)
+D    2025-03-01  T. Okafor, VP QA    Updated regulatory references to include
+                                     ISO 13485:2016 Section 8.2.2; added
+                                     CAPA linkage threshold (≥3 complaints,
+                                     Step 5.3); added Appendix A MDR decision
+                                     tree (separate attachment in EDMS)
+
+-------------------------------------------------------------------------------
+APPROVAL SIGNATURES
+-------------------------------------------------------------------------------
+Prepared by:  _________________________    Date: __________
+              T. Okafor, VP Quality Assurance
+
+Reviewed by:  _________________________    Date: __________
+              C. Martinez, Regulatory Affairs Specialist
+
+Approved by:  _________________________    Date: __________
+              Dr. J. Mercer, Chief Quality Officer
+
+-------------------------------------------------------------------------------
+** END OF DOCUMENT **
+** SOP-QA-CX-091 Rev. D **
+-------------------------------------------------------------------------------

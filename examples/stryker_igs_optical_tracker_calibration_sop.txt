@@ -1,0 +1,287 @@
+STANDARD OPERATING PROCEDURE
+Document Number:  SOP-CAL-IGS-018
+Title:            Calibration of Stryker Navigation System Optical Tracking Camera
+Department:       Biomedical Engineering / Metrology
+Effective Date:   2024-09-01
+Revision:         B
+
+-------------------------------------------------------------------------------
+1. PURPOSE
+-------------------------------------------------------------------------------
+This procedure establishes the calibration requirements for the Stryker
+Navigation System 2.0 Optical Tracking Camera (OTC) used in intraoperative
+image-guided surgery (IGS) workflows. Calibration ensures positional accuracy
+meets the ≤1.0 mm root mean square (RMS) spatial error specification required
+for safe navigated surgical guidance.
+
+-------------------------------------------------------------------------------
+2. SCOPE
+-------------------------------------------------------------------------------
+This SOP applies to all Stryker Navigation System 2.0 Optical Tracking Cameras
+(model NAV-OTC-200 series) in service at facilities under this institution's
+biomedical engineering maintenance agreement. It covers initial calibration
+on commissioning, periodic recalibration, and recalibration after any repair
+or optical component replacement.
+
+This SOP does not apply to:
+  - Stryker Navigation System 1.x legacy cameras (see SOP-CAL-IGS-009)
+  - Fluoroscopic C-arm calibration (see SOP-CAL-RAD-004)
+  - Software-only navigation upgrades
+
+The Stryker Navigation System 2.0 is classified as a Class II medical device
+(510(k) K201847). Calibration activities must comply with 21 CFR 820.72.
+
+-------------------------------------------------------------------------------
+3. RESPONSIBILITIES
+-------------------------------------------------------------------------------
+Biomedical Engineer (BME):
+  - Performs all calibration steps per this SOP.
+  - Operates the Stryker NavCalibrate software tool.
+  - Completes and signs the Calibration Record (Form CAL-IGS-018).
+  - Applies calibration label per Section 9.4.
+  - Escalates out-of-tolerance findings to the Supervisor immediately.
+
+BME Supervisor:
+  - Reviews and countersigns Calibration Records.
+  - Approves out-of-calibration disposition and initiates NCR if required.
+  - Ensures calibration standards used in this procedure are maintained
+    on an active calibration schedule per SOP-CAL-003.
+
+QA Manager:
+  - Approves this SOP and all revisions.
+  - Monitors calibration compliance during internal audits.
+
+-------------------------------------------------------------------------------
+4. REFERENCES
+-------------------------------------------------------------------------------
+Regulatory
+  - 21 CFR Part 820.72 (Inspection, Measuring, and Test Equipment)
+  - 21 CFR Part 820.72(a) (Calibration procedures and intervals)
+  - 21 CFR Part 820.72(b) (Calibration standards — NIST traceability)
+  - 21 CFR Part 820.75 (Process Validation)
+
+Standards
+  - ANSI/NCSL Z540-1-1994 (Calibration Laboratories and Measuring Equipment)
+  - ISO 10360-2:2009 (Coordinate Measuring Systems — Performance Tests)
+  - ASTM F2554-10 (Measurement of Positional Accuracy of Computer Assisted
+    Surgical Systems)
+
+Internal Documents
+  - SOP-CAL-003: Calibration Program for Measuring and Test Equipment
+  - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
+  - SOP-QA-CAPA-007: Corrective and Preventive Action
+  - Stryker NavCalibrate User Guide v3.1 (document NAV-UG-031)
+  - Stryker Navigation System 2.0 Service Manual (document NAV-SM-200)
+
+-------------------------------------------------------------------------------
+5. DEFINITIONS AND ABBREVIATIONS
+-------------------------------------------------------------------------------
+AUC       Accuracy Under Calibration — positional error measured against
+          a known reference standard
+BME       Biomedical Engineer
+CASS      Computer-Assisted Surgical System
+IGS       Image-Guided Surgery
+NIST      National Institute of Standards and Technology
+NCR       Non-Conformance Report
+OTC       Optical Tracking Camera
+QA        Quality Assurance
+RMS       Root Mean Square — statistical measure of positional error
+SOP       Standard Operating Procedure
+TRE       Target Registration Error — error at a surgical target point
+
+-------------------------------------------------------------------------------
+6. MATERIALS AND EQUIPMENT
+-------------------------------------------------------------------------------
+6.1  Calibration Reference Standards (all must carry current NIST-traceable
+     calibration certificates; do not use if certificate is expired)
+     - Stryker NavCalibration Reference Frame Kit (Part No. NAV-REF-KIT-001)
+       Traceable to NIST via calibration certificate on file (BME Lab binder
+       CAL-REF-IGS); recalibration interval: 12 months
+     - Certified dimensional reference bar, 300 mm ±0.005 mm
+       (NIST-traceable certificate No. NBS-2024-04471; expires 2025-04-30)
+     - Calibrated steel reference sphere, 25.400 mm ±0.001 mm diameter
+       (NIST-traceable; Cal Tag: REF-SPH-007)
+
+6.2  Test and Measurement Equipment
+     - Stryker NavCalibrate software v3.1 (installed on dedicated calibration
+       laptop, asset tag BME-LAP-003; software version verified prior to use)
+     - Digital thermometer/hygrometer, ±0.3°C / ±2% RH (Cal Tag: THM-0012)
+     - Spirit level (Cal Tag: LVL-0004)
+
+6.3  Documentation and Supplies
+     - Calibration Record Form CAL-IGS-018 (current revision from EDMS)
+     - Calibration labels (green; per Section 9.4 label specification)
+     - Void-if-removed tamper seals
+
+-------------------------------------------------------------------------------
+7. SAFETY PRECAUTIONS AND PPE
+-------------------------------------------------------------------------------
+7.1  Required PPE
+     - ESD wrist strap when handling electronic optical tracking components
+     - Powder-free nitrile gloves when handling calibration reference spheres
+       and reference frame retroreflective markers (skin oils degrade
+       reflectivity and introduce measurement error)
+
+7.2  Infrared (IR) Safety
+     - The OTC emits Class 1M infrared radiation. Do not view the IR
+       illuminators directly with optical instruments (magnifying lenses,
+       binoculars). Unaided viewing is safe per IEC 60825-1.
+
+7.3  Environmental Requirements for Valid Calibration
+     - Calibration must be performed in a room free from direct sunlight
+       and supplemental IR sources (heat lamps, surgical lights) that
+       may interfere with the optical tracking field.
+     - Ambient temperature: 18–24 °C. Record temperature at start and end
+       of calibration on Form CAL-IGS-018.
+     - Humidity: 30–70% RH. Record on Form CAL-IGS-018.
+     - If conditions are outside range, postpone calibration and document
+       the deferral reason.
+
+-------------------------------------------------------------------------------
+8. PROCEDURE
+-------------------------------------------------------------------------------
+
+STEP 1 — Pre-Calibration Environmental Check
+         1.1  Measure and record ambient temperature and relative humidity
+              on Form CAL-IGS-018, Section 1.
+         1.2  Confirm conditions are within 18–24 °C and 30–70% RH.
+              If out of range, stop and document; do not proceed.
+         1.3  Verify the calibration room is free of direct sunlight
+              and active IR heat sources within 3 m of the OTC.
+         1.4  Allow the OTC to warm up for a minimum of 15 minutes
+              after power-on before beginning calibration measurements.
+
+STEP 2 — Equipment Verification
+         2.1  Verify OTC serial number against Form CAL-IGS-018 header.
+         2.2  Confirm all calibration reference standards (Section 6.1)
+              have current, valid NIST-traceable calibration certificates.
+              Record certificate numbers on Form CAL-IGS-018, Section 2.
+         2.3  Confirm NavCalibrate software version is 3.1 or higher.
+              Record version on Form CAL-IGS-018, Section 2.
+         2.4  Confirm calibration laptop (BME-LAP-003) has not had any
+              software updates since the last verified calibration run.
+              If updated, notify BME Supervisor before proceeding.
+
+STEP 3 — Physical Inspection of OTC
+         3.1  Inspect OTC optical windows for cracks, scratches, or
+              contamination. If damaged, remove from service and initiate
+              NCR per SOP-QC-NCR-001.
+         3.2  Verify OTC mounting is stable; check all mechanical fasteners
+              are tight. Tighten to 2.0 N·m using calibrated torque driver
+              if any are found loose; record on Form CAL-IGS-018.
+         3.3  Inspect reference frame retroreflective markers for
+              delamination or damage. Replace any damaged markers using
+              Stryker-approved replacement kit (Part No. NAV-MKR-010)
+              before proceeding.
+
+STEP 4 — Volumetric Accuracy Measurement (NavCalibrate Guided Procedure)
+         4.1  Launch NavCalibrate v3.1 and select "OTC Volumetric Calibration."
+         4.2  Mount the NavCalibration Reference Frame Kit on the OTC calibration
+              stand at the standard 1.5 m working distance.
+         4.3  Follow the on-screen NavCalibrate prompts to collect reference
+              frame measurements at the following orientations:
+              - 0° (neutral), ±15°, ±30° roll; 0°, +20°, -20° tilt
+              (9 measurement positions total; software guides operator
+              through each position with visual confirmation)
+         4.4  Record the NavCalibrate-reported RMS spatial error for each
+              position in Form CAL-IGS-018, Section 3 (Volumetric Accuracy).
+         4.5  RMS spatial error must be ≤1.0 mm at all positions.
+              Any position exceeding 1.0 mm = calibration failure.
+
+STEP 5 — Point Accuracy Verification (Reference Sphere Test)
+         5.1  Place the calibrated reference sphere (Cal Tag: REF-SPH-007)
+              at five positions within the tracking volume:
+              center, and four quadrant positions at 0.5 m offsets.
+         5.2  Using NavCalibrate "Point Accuracy" mode, record the OTC's
+              measured sphere center position at each location.
+         5.3  Compare measured vs. certified sphere diameter; deviation must
+              be ≤0.5 mm at all five positions.
+         5.4  Record all measured values and deviations on Form CAL-IGS-018,
+              Section 4 (Point Accuracy).
+
+STEP 6 — Dimensional Reference Bar Verification
+         6.1  Place the certified 300 mm reference bar at three positions
+              within the working volume (near, center, far).
+         6.2  Record OTC-measured bar length at each position via
+              NavCalibrate "Length Verification" mode.
+         6.3  Acceptance criterion: measured length = 300.0 mm ± 1.0 mm
+              at all three positions.
+         6.4  Record results on Form CAL-IGS-018, Section 5.
+
+STEP 7 — Disposition
+         7.1  If ALL criteria in Steps 4–6 are met:
+              - Mark Form CAL-IGS-018 as PASS.
+              - Generate the NavCalibrate calibration certificate (PDF);
+                save to \\BME-SRV-01\IGS\Calibration\[SerialNo]\[Date]\.
+              - Affix calibration label (Section 9.4) to OTC housing.
+              - Record next calibration due date (12 months from today)
+                on Form CAL-IGS-018 and in the BME asset management system.
+         7.2  If ANY criterion fails:
+              - Mark Form CAL-IGS-018 as FAIL.
+              - Remove the OTC from service immediately; affix red
+                "OUT OF SERVICE — DO NOT USE" label.
+              - Notify BME Supervisor within 1 hour.
+              - Initiate NCR per SOP-QC-NCR-001.
+              - Assess impact: identify all procedures performed since the
+                last passing calibration; document impact assessment on NCR.
+
+STEP 8 — Documentation and Filing
+         8.1  BME Supervisor countersigns Form CAL-IGS-018.
+         8.2  File original signed Form in BME Calibration Binder (physical,
+              Building 2, Room 214) and scan to EDMS under asset record.
+         8.3  Retain Calibration Records per 21 CFR 820.180 (minimum
+              device useful life + 2 years, not less than 5 years).
+
+-------------------------------------------------------------------------------
+9. DOCUMENTATION AND RECORDS
+-------------------------------------------------------------------------------
+Form CAL-IGS-018  Calibration Record — completed for every calibration event.
+                  Sections: Environmental conditions, Equipment verification,
+                  Volumetric accuracy data, Point accuracy data, Reference
+                  bar data, Pass/Fail disposition, signatures.
+
+NavCalibrate PDF Certificate
+                  Machine-generated output saved to \\BME-SRV-01\IGS\ folder.
+                  Retained minimum 5 years.
+
+NCR (Form QC-NCR-001)
+                  Initiated for any calibration failure within 1 hour.
+
+9.4 Calibration Label Specification
+    Label must include:
+    - "CALIBRATED" in bold (minimum 8-pt font)
+    - OTC Serial Number
+    - Calibration date (MM/DD/YYYY)
+    - Next calibration due date (MM/DD/YYYY)
+    - Calibrated by (initials)
+    Labels are green with black print; sourced from approved supplier
+    per SOP-CAL-003 Appendix A.
+
+-------------------------------------------------------------------------------
+10. REVISION HISTORY
+-------------------------------------------------------------------------------
+Rev  Date        Author              Change Summary
+---  ----------  ------------------  ------------------------------------------
+A    2022-04-15  D. Park, BME        Initial release for NAV-OTC-200 series
+B    2024-09-01  A. Osei, BME Supv   Added reference sphere verification (Step 5);
+                                     updated NIST traceability requirements to
+                                     align with ANSI/NCSL Z540-1; added
+                                     environmental condition requirements (Step 1)
+                                     per CAR-2024-019
+
+-------------------------------------------------------------------------------
+APPROVAL SIGNATURES
+-------------------------------------------------------------------------------
+Prepared by:  _________________________    Date: __________
+              A. Osei, BME Supervisor
+
+Reviewed by:  _________________________    Date: __________
+              C. Martinez, Regulatory Affairs
+
+Approved by:  _________________________    Date: __________
+              P. Singh, Director of Quality Assurance
+
+-------------------------------------------------------------------------------
+** END OF DOCUMENT **
+** SOP-CAL-IGS-018 Rev. B **
+-------------------------------------------------------------------------------

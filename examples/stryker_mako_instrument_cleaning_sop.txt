@@ -1,0 +1,298 @@
+STANDARD OPERATING PROCEDURE
+Document Number:  SOP-CLEAN-MAK-033
+Title:            Pre-Sterilization Cleaning of Mako SmartRobotics Reusable Instrument Set
+Department:       Central Sterile Processing / Quality Operations
+Effective Date:   2025-01-15
+Revision:         A
+
+-------------------------------------------------------------------------------
+1. PURPOSE
+-------------------------------------------------------------------------------
+This procedure establishes the manual and automated cleaning requirements for
+reusable Mako SmartRobotics surgical instruments prior to sterilization,
+to remove biological soil, lubricant residue, and bone cement particulates
+that could compromise sterility assurance or cause instrument malfunction
+during robotic-assisted total knee and hip arthroplasty procedures.
+
+-------------------------------------------------------------------------------
+2. SCOPE
+-------------------------------------------------------------------------------
+This SOP applies to the following reusable components of the Mako
+SmartRobotics Instrument Set (Catalog No. 7,207-052 series):
+  - Mako bone cutting burrs (reusable, titanium alloy, multiple sizes)
+  - Burr shaft assemblies and locking collets
+  - Robotic arm drape frame components (non-sterile barrier side)
+  - Leg positioner clamps and adapters
+
+This SOP does not apply to:
+  - Single-use components (discard per SOP-WAS-001 after each case)
+  - The robotic arm itself (see SOP-CLEAN-MAK-010: Mako System Surface Wipe-Down)
+  - Implant trials or final implant components
+
+All Mako SmartRobotics components addressed here are accessories to a
+Class III medical device (PMA P150002). Cleaning validation was performed
+per AAMI TIR30 and ISO 15883.
+
+-------------------------------------------------------------------------------
+3. RESPONSIBILITIES
+-------------------------------------------------------------------------------
+Central Sterile Processing Technician (CSP Tech):
+  - Performs all manual cleaning steps and operates the automated washer-
+    disinfector per this SOP.
+  - Records all parameters on the Instrument Cleaning Log (Form CS-CL-033).
+  - Rejects any instrument failing visual inspection; sets aside for QC review.
+
+CSP Supervisor:
+  - Reviews completed Cleaning Logs each shift.
+  - Approves washer-disinfector cycle printouts and reconciles to Cleaning Log.
+  - Initiates instrument rejection documentation per SOP-QC-NCR-001 for
+    instruments failing inspection that cannot be cleaned to specification.
+
+Biomedical Engineering (BME):
+  - Performs monthly verification of washer-disinfector cycle parameters
+    per SOP-CAL-WD-007 (Washer-Disinfector Qualification).
+  - Escalates any washer-disinfector cycle deviation to QA.
+
+QA Manager:
+  - Approves this SOP and all revisions.
+  - Reviews cleaning validation data upon SOP revision.
+
+-------------------------------------------------------------------------------
+4. REFERENCES
+-------------------------------------------------------------------------------
+Regulatory
+  - 21 CFR Part 820.70(e) (Contamination Control)
+  - 21 CFR Part 820.70(f) (Buildings — cleaning and maintenance)
+  - 21 CFR Part 820.90 (Nonconforming Product)
+  - 21 CFR Part 820.180 (General Requirements for Records)
+
+Standards
+  - AAMI TIR30:2011 (Washer-Disinfectors — guidance for processing of
+    reusable medical devices)
+  - ISO 15883-1:2006 (Washer-Disinfectors — general requirements)
+  - AAMI ST79:2017 (Comprehensive guide to steam sterilization)
+  - Association of periOperative Registered Nurses (AORN) Guidelines for
+    Perioperative Practice, 2024 — Instrument Processing
+
+Internal Documents
+  - SOP-CLEAN-MAK-010: Mako System Surface Wipe-Down (OR use)
+  - SOP-CAL-WD-007: Washer-Disinfector Qualification and Cycle Verification
+  - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
+  - SOP-WAS-001: Medical Waste Disposal
+  - IFU-MAK-INST-001: Mako Instrument Set Instructions for Use (manufacturer IFU)
+  - Cleaning Validation Report: CVR-MAK-033-A (on file, QA Records Room)
+
+-------------------------------------------------------------------------------
+5. DEFINITIONS AND ABBREVIATIONS
+-------------------------------------------------------------------------------
+A0 Value   Measure of thermal disinfection efficacy (pasteurization); A0 ≥ 600
+           required for safe reprocessing of surgical instruments
+AAMI       Association for the Advancement of Medical Instrumentation
+BME        Biomedical Engineering
+CSP        Central Sterile Processing
+IFU        Instructions for Use
+ISO        International Organization for Standardization
+NCR        Non-Conformance Report
+PPE        Personal Protective Equipment
+QA         Quality Assurance
+RO         Reverse Osmosis (water quality for final rinse)
+SOP        Standard Operating Procedure
+WD         Washer-Disinfector
+
+-------------------------------------------------------------------------------
+6. MATERIALS AND EQUIPMENT
+-------------------------------------------------------------------------------
+6.1  Cleaning Agents (approved for Mako instruments per CVR-MAK-033-A)
+     - Enzymatic detergent: Prolystica 2X Concentrate (diluted 1:64 in
+       RO water, 45–55 °C), approved per IFU-MAK-INST-001, Section 6
+     - Neutral pH instrument lubricant: Instrument Milk (applied post-clean,
+       pre-sterilization; compatible with steam per AAMI ST79)
+     - 70% Isopropyl Alcohol, USP Grade — for final wipe of locking collets
+       prior to sterilization wrap
+
+6.2  Automated Equipment
+     - Getinge HS 66 Washer-Disinfector, Unit WD-03 (see SOP-CAL-WD-007
+       for cycle qualification records)
+     - Designated instrument trays for Mako burr sets (Tray IDs: MAK-TR-01
+       through MAK-TR-08; labeled on tray)
+
+6.3  Manual Cleaning Supplies
+     - Soft-bristle nylon brush set, sizes 2 mm and 5 mm (lumen brushes)
+       — dedicated to Mako instruments, color-coded RED
+     - Non-metallic pick for cement particulate removal
+     - Ultrasonic cleaner (if available): Branson 5800, Unit US-02
+       (15-minute cycle at 40 kHz, enzymatic solution)
+     - RO water rinse station (water quality: ≤5 µS/cm conductivity;
+       verified daily per SOP-CAL-WD-007)
+     - pH test strips (range 4–10)
+
+6.4  PPE (see Section 7)
+
+-------------------------------------------------------------------------------
+7. SAFETY PRECAUTIONS AND PPE
+-------------------------------------------------------------------------------
+7.1  Required PPE — Decontamination Zone (soiled side)
+     - Heavy-duty butyl rubber gloves (NOT latex; resist enzymatic detergent)
+     - Fluid-resistant gown or apron
+     - Full face shield (surgical instruments may splash during scrubbing)
+     - Surgical mask or N95 where aerosol generation is expected
+
+7.2  Required PPE — Clean Assembly Zone
+     - Powder-free nitrile gloves
+     - Cleanroom gown or dedicated clean-side attire
+
+7.3  Chemical Hazards
+     - Enzymatic detergent (Prolystica) is an irritant. If eye contact occurs,
+       flush immediately with water for 15 minutes; notify supervisor.
+     - SDS for all cleaning agents posted at the decontamination station.
+     - Discard diluted enzymatic solution after each 8-hour shift regardless
+       of appearance; do not reuse from previous shift.
+
+7.4  Sharps Safety
+     - Mako bone cutting burrs have sharp cutting edges even after use.
+     - Always handle burrs with the dedicated non-slip burr grip tool
+       (Part No. MAK-TL-GRIP-001); never grasp bare cutting edge.
+     - Report all sharps injuries immediately per SOP-SAF-010.
+
+-------------------------------------------------------------------------------
+8. PROCEDURE
+-------------------------------------------------------------------------------
+
+STEP 1 — Point-of-Use Pre-Treatment (OR, immediately after case)
+         1.1  At the OR sterile field breakdown, remove gross bone cement
+              and tissue debris from burrs using sterile water and gauze
+              (point-of-use treatment; prevents drying of soil).
+         1.2  Submerge instruments in the transport container pre-filled
+              with enzymatic soak solution (Prolystica 1:64 in RO water)
+              for transport to CSP. Do not allow instruments to dry.
+         1.3  Complete the case ID field on the Instrument Cleaning Log
+              (Form CS-CL-033) and send with instrument transport container.
+
+STEP 2 — Receive and Sort (CSP Decontamination Zone)
+         2.1  Confirm instrument set identity against the case ID on
+              Form CS-CL-033. Note any missing components.
+         2.2  Sort instruments into categories on the decontamination counter:
+              - Burrs and collets (lumen-containing; require brush cleaning)
+              - Frame components and clamps (solid surfaces)
+         2.3  Inspect for gross damage (cracked shafts, deformed cutting edges,
+              missing screws). Tag damaged instruments "HOLD — QC REVIEW" and
+              set aside; document on Form CS-CL-033.
+
+STEP 3 — Manual Pre-Clean (Enzymatic)
+         3.1  Fill the decontamination sink with Prolystica 2X Concentrate
+              diluted 1:64 in RO water at 45–55 °C. Verify temperature
+              with the calibrated digital thermometer (if available); record
+              on Form CS-CL-033. Verify solution pH is 6.0–8.0.
+         3.2  Fully submerge instruments. Soak for minimum 10 minutes.
+         3.3  Using the 2 mm lumen brush (red-handled, Mako-dedicated),
+              scrub all lumen channels of burrs and collets with overlapping
+              strokes (minimum 5 full passes per lumen). Flush lumens
+              with syringe of enzymatic solution after brushing.
+         3.4  Scrub all external surfaces, joints, and serrations with
+              the 5 mm nylon brush. Work in the direction of the surface
+              finish to avoid surface damage.
+         3.5  Rinse all instruments under flowing RO water (minimum 1 minute
+              per instrument; minimum 3 complete rinse passes).
+         3.6  Verify no visible soil remains. If soil persists, repeat Step 3.
+
+STEP 4 — Automated Washer-Disinfector Cycle
+         4.1  Load instruments into designated Mako trays (MAK-TR-01 through
+              MAK-TR-08) per the tray configuration guide posted on WD-03.
+         4.2  Confirm WD-03 is loaded with the Mako Validated Cycle (Cycle 4).
+         4.3  Run Cycle 4. Cycle parameters (per SOP-CAL-WD-007):
+              - Pre-wash: cold RO water, 2 min
+              - Wash: Prolystica 1:200, 55 °C, 5 min
+              - Thermal rinse: 90 °C, A0 ≥ 600 (minimum 1 min at 90 °C)
+              - Drying: 90 °C, 10 min
+         4.4  Upon cycle completion, retrieve the cycle printout from WD-03.
+              Verify A0 value ≥ 600 and all temperatures were achieved.
+              If cycle fails to meet parameters, instruments are NOT clean;
+              repeat from Step 3 and initiate WD deviation log.
+         4.5  Record cycle number, A0 value, and pass/fail on Form CS-CL-033.
+
+STEP 5 — Post-Wash Visual Inspection
+         5.1  Under bright white light (minimum 1,000 lux), inspect all
+              instruments for:
+              a) Residual soil, discoloration, or water spots (reject if found)
+              b) Surface damage — nicks, corrosion, cracks (reject if found)
+              c) Lumen patency — pass a cleaning wire through each lumen
+                 to confirm no blockage
+         5.2  Instruments failing Step 5.1 inspection are tagged "REJECT —
+              DO NOT STERILIZE" and documented on Form CS-CL-033.
+              QC NCR is initiated per SOP-QC-NCR-001 for any rejected instrument.
+
+STEP 6 — Lubrication and Final Wipe
+         6.1  Apply Instrument Milk lubricant to all joints and moving parts
+              of collet assemblies per manufacturer IFU (thin coating; wipe
+              off excess with lint-free wipe).
+         6.2  Wipe locking collet contact surfaces with 70% IPA to remove
+              lubricant from sealing faces (IPA is compatible with
+              subsequent steam sterilization).
+         6.3  Allow surfaces to air-dry (minimum 5 minutes before packaging).
+
+STEP 7 — Packaging and Transfer to Sterilization
+         7.1  Package clean instruments in CSP-approved sterilization wrap
+              per AAMI ST79 Section 8 requirements.
+         7.2  Affix an internal chemical indicator (Class 1) and an external
+              chemical indicator (Class 3) to each package.
+         7.3  Label each package with: instrument name, tray ID, packed by
+              (initials), pack date, and sterilization load number (pre-assigned
+              by CSP Supervisor).
+         7.4  Transfer to the sterilization queue; update Form CS-CL-033
+              with package labels and transfer time.
+
+STEP 8 — Documentation Completion
+         8.1  CSP Tech completes and signs Form CS-CL-033.
+         8.2  CSP Supervisor reviews, countersigns, and files the original
+              Form in the CSP Log Binder for the date of processing.
+         8.3  Scan Form and washer-disinfector printout to EDMS under the
+              instrument set's DHR record.
+
+-------------------------------------------------------------------------------
+9. DOCUMENTATION AND RECORDS
+-------------------------------------------------------------------------------
+Form CS-CL-033  Instrument Cleaning Log — completed for every cleaning event.
+                Includes: Case ID, received instrument inventory, pre-clean
+                observations, WD cycle number and A0 value, visual inspection
+                results, disposition, technician and supervisor signatures.
+                Retained per 21 CFR 820.180 (device useful life + 2 years).
+
+WD-03 Cycle Printout
+                Paper printout from Getinge HS 66 for each cycle.
+                Attached to Form CS-CL-033 in the CSP Log Binder.
+
+NCR (Form QC-NCR-001)
+                Initiated for any instrument failing visual inspection
+                or any WD cycle that does not meet validated parameters.
+
+Cleaning Validation Report CVR-MAK-033-A
+                On file in QA Records Room; reviewed upon each SOP revision.
+
+-------------------------------------------------------------------------------
+CLEANING FREQUENCY SCHEDULE
+-------------------------------------------------------------------------------
+Event                              Action
+---------------------------------  ------------------------------------------
+After each surgical case           Full cleaning per this SOP (Steps 1–8)
+End-of-day if instruments unused   Inspection only; no additional cleaning needed
+After repair or modification       Full cleaning per this SOP before sterilization
+Before any loaner set is accepted  Full cleaning per this SOP regardless of
+                                   supplier-provided cleaning status
+
+-------------------------------------------------------------------------------
+APPROVAL SIGNATURES
+-------------------------------------------------------------------------------
+Prepared by:  _________________________    Date: __________
+              N. Kowalski, CSP Supervisor
+
+Reviewed by:  _________________________    Date: __________
+              R. Nguyen, Regulatory Affairs Specialist
+
+Approved by:  _________________________    Date: __________
+              T. Okafor, VP Quality Assurance
+
+-------------------------------------------------------------------------------
+** END OF DOCUMENT **
+** SOP-CLEAN-MAK-033 Rev. A **
+** NOTE: Revision history not yet established (initial release). **
+-------------------------------------------------------------------------------
