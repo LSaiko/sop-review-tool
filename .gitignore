@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment / secrets — NEVER commit API keys
+.env
+.env.*
+*.env
+
+# Generated PDF reports (example report in root is intentional; ignore others)
+*_report.pdf
+*_review_report.pdf
+!sop_review_report.pdf
+
+# Generated JSON output from --json-output flag
+findings.json
+*_findings.json
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/

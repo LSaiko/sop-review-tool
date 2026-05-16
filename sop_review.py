@@ -2,11 +2,13 @@
 """
 sop_review.py — AI-powered SOP compliance review tool for 21 CFR 820.
 
-Submits a Standard Operating Procedure text to Claude and generates a
-color-coded PDF report indicating compliance status for each checklist item.
+Submits a Standard Operating Procedure (.txt, .docx, or .pdf) to Claude
+and generates a color-coded PDF report indicating compliance status for
+each checklist item. Optionally saves the raw Claude JSON response.
 
 Usage:
     python sop_review.py --file sample_sop.txt --sop-type cleaning --device-class II
+    python sop_review.py --file mako_sop.pdf  --sop-type inspection --device-class III
 """
 
 import argparse
@@ -14,14 +16,15 @@ import json
 import os
 import re
 import sys
-from datetime import datetime
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
 import pdfplumber
 from docx import Document
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
@@ -263,7 +266,7 @@ CLASS_NOTES: dict[str, str] = {
 
 
 def read_sop_file(file_path: str) -> str:
-    """Read SOP content from a .txt or .docx file.
+    """Read SOP content from a .txt, .docx, or .pdf file.
 
     Args:
         file_path: Absolute or relative path to the SOP file.
@@ -273,7 +276,9 @@ def read_sop_file(file_path: str) -> str:
 
     Raises:
         FileNotFoundError: If the file does not exist.
-        ValueError: If the file extension is unsupported.
+        ValueError: If the file extension is unsupported, the PDF is
+            scanned/image-only (no extractable text), or the PDF is
+            password-protected or corrupt.
     """
     path = Path(file_path)
     if not path.exists():
@@ -286,14 +291,26 @@ def read_sop_file(file_path: str) -> str:
         doc = Document(str(path))
         return "\n".join(para.text for para in doc.paragraphs)
     elif suffix == ".pdf":
-        pages = []
-        with pdfplumber.open(str(path)) as pdf:
-            for page in pdf.pages:
-                text = page.extract_text(layout=True)
-                if text:
-                    pages.append(text)
+        try:
+            pages = []
+            with pdfplumber.open(str(path)) as pdf:
+                for page in pdf.pages:
+                    text = page.extract_text(layout=True)
+                    if text:
+                        pages.append(text)
+        except Exception as exc:
+            # Covers password-protected PDFs, corrupt files, and pdfminer errors
+            raise ValueError(
+                f"Could not open '{file_path}' as a PDF. "
+                "The file may be password-protected, corrupt, or not a valid PDF.\n"
+                f"Underlying error: {exc}"
+            ) from exc
         if not pages:
-            raise ValueError(f"No extractable text found in '{file_path}'. The PDF may be scanned/image-only.")
+            raise ValueError(
+                f"No extractable text found in '{file_path}'. "
+                "The PDF may be scanned/image-only. "
+                "Convert it with OCR (e.g., Adobe Acrobat, Tesseract) first."
+            )
         return "\n\n".join(pages)
     else:
         raise ValueError(f"Unsupported file type '{suffix}'. Use .txt, .docx, or .pdf.")
@@ -325,6 +342,8 @@ def build_checklist_text(sop_type: str) -> str:
 def call_claude(sop_text: str, sop_type: str, device_class: str) -> str:
     """Send the SOP text and checklist to Claude for compliance review.
 
+    Retries up to 3 times with exponential backoff on transient API errors.
+
     Args:
         sop_text: Full plain-text content of the SOP document.
         sop_type: SOP category (manufacturing, calibration, cleaning, etc.).
@@ -334,7 +353,7 @@ def call_claude(sop_text: str, sop_type: str, device_class: str) -> str:
         Raw text response from Claude containing the structured review.
 
     Raises:
-        anthropic.APIError: On any API-level failure.
+        anthropic.APIError: If all retry attempts fail.
     """
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
 
@@ -386,14 +405,28 @@ Respond ONLY with a valid JSON object in this exact structure:
 
 Do not include any text outside the JSON object."""
 
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4096,
-        system=system_prompt,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
+    max_retries = 3
+    base_delay = 5  # seconds
 
-    return message.content[0].text
+    for attempt in range(1, max_retries + 1):
+        try:
+            message = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=8192,
+                system=system_prompt,
+                messages=[{"role": "user", "content": user_prompt}],
+            )
+            return message.content[0].text
+        except anthropic.APIError as exc:
+            if attempt == max_retries:
+                raise
+            delay = base_delay * (2 ** (attempt - 1))  # 5s, 10s, 20s
+            print(
+                f"      API error on attempt {attempt}/{max_retries}: {exc}. "
+                f"Retrying in {delay}s...",
+                file=sys.stderr,
+            )
+            time.sleep(delay)
 
 
 def parse_claude_response(raw: str) -> dict:
@@ -471,12 +504,6 @@ def _make_styles() -> dict:
             textColor=colors.HexColor("#1A252F"),
             spaceBefore=14,
             spaceAfter=6,
-        ),
-        "body": ParagraphStyle(
-            "Body",
-            parent=base["Normal"],
-            fontSize=9,
-            leading=13,
         ),
         "cell": ParagraphStyle(
             "TableCell",
@@ -682,7 +709,7 @@ def generate_pdf_report(
 
     # Metadata table
     meta_data = [
-        ["Date Generated:", datetime.now().strftime("%B %d, %Y  %H:%M UTC")],
+        ["Date Generated:", datetime.now(timezone.utc).strftime("%B %d, %Y  %H:%M UTC")],
         ["SOP File:", sop_filename],
         ["Device Class:", f"Class {device_class}"],
         ["SOP Type:", sop_type.capitalize()],
@@ -778,6 +805,7 @@ Examples:
   python sop_review.py --file sample_sop.txt --sop-type cleaning --device-class II
   python sop_review.py --file my_mfg_sop.docx --sop-type manufacturing --device-class III --output report.pdf
   python sop_review.py --file stryker_mako_sop.pdf --sop-type inspection --device-class III --output mako_report.pdf
+  python sop_review.py --file sop.pdf --sop-type complaint --device-class III --json-output findings.json
         """,
     )
     parser.add_argument(
@@ -793,17 +821,21 @@ Examples:
         help="Output path for the PDF report (default: ./sop_review_report.pdf)",
     )
     parser.add_argument(
+        "--json-output",
+        default=None,
+        metavar="PATH",
+        help="Optional path to also save the raw Claude JSON response (e.g. findings.json)",
+    )
+    parser.add_argument(
         "--device-class",
         required=True,
         choices=["I", "II", "III"],
-        metavar="CLASS",
         help="FDA device class: I, II, or III",
     )
     parser.add_argument(
         "--sop-type",
         required=True,
         choices=["manufacturing", "calibration", "cleaning", "inspection", "complaint"],
-        metavar="TYPE",
         help="SOP type: manufacturing | calibration | cleaning | inspection | complaint",
     )
     return parser.parse_args()
@@ -852,6 +884,14 @@ def main() -> None:
         f"      Overall status: {review_data['overall_status']} "
         f"({present_count}/{len(findings)} items PRESENT)"
     )
+
+    # Optional JSON output
+    if args.json_output:
+        json_path = Path(args.json_output)
+        json_path.write_text(
+            json.dumps(review_data, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        print(f"      JSON saved to: {args.json_output}")
 
     print(f"[4/4] Generating PDF report: {args.output}")
     generate_pdf_report(

@@ -301,7 +301,7 @@ sop_review.py
 |---|---|
 | **Preliminary only** | Claude may miss context-dependent requirements. Human sign-off is always required. |
 | **Static checklist** | The checklist reflects 21 CFR Part 820 as of 2024. FDA may issue new guidance at any time. |
-| **No 21 CFR Part 4 / QSR-to-QMSR transition** | The tool does not yet cover the updated QMSR (Quality Management System Regulation) effective February 2026. |
+| **QMSR transition — action required** | The FDA Quality Management System Regulation (QMSR, 21 CFR Part 820 as amended) took effect **February 2, 2026** and aligns 21 CFR 820 with ISO 13485:2016. This tool's checklist is based on the pre-2026 QSR text. Users should verify all regulation citations against the current QMSR and supplement AI findings with a manual QMSR gap assessment until the checklist is updated. |
 | **English-language SOPs only** | Multi-language documents are not tested. |
 | **Text-based PDFs only** | Scanned / image-only PDFs will raise an error. Use OCR (e.g., Adobe Acrobat, Tesseract) to convert to searchable PDF before submitting. |
 | **No cross-document validation** | Referenced SOPs and forms are not fetched or verified. |
