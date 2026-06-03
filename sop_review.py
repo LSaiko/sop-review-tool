@@ -19,6 +19,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 import anthropic
 import pdfplumber
@@ -286,10 +287,23 @@ def read_sop_file(file_path: str) -> str:
 
     suffix = path.suffix.lower()
     if suffix == ".txt":
-        return path.read_text(encoding="utf-8")
+        try:
+            return path.read_text(encoding="utf-8")
+        except UnicodeDecodeError as exc:
+            raise ValueError(
+                f"Could not decode '{file_path}' as UTF-8 text. "
+                "Re-save the file as UTF-8 (or convert it to .docx/.pdf).\n"
+                f"Underlying error: {exc}"
+            ) from exc
     elif suffix == ".docx":
         doc = Document(str(path))
-        return "\n".join(para.text for para in doc.paragraphs)
+        # Paragraphs plus table cells — revision-history and approval-signature
+        # blocks are commonly authored as Word tables, not paragraphs.
+        parts = [para.text for para in doc.paragraphs]
+        for table in doc.tables:
+            for row in table.rows:
+                parts.append("\t".join(cell.text for cell in row.cells))
+        return "\n".join(parts)
     elif suffix == ".pdf":
         try:
             pages = []
@@ -458,6 +472,24 @@ def parse_claude_response(raw: str) -> dict:
             f"Claude response missing required keys. Got: {list(data.keys())}"
         )
 
+    if not isinstance(data["findings"], list) or not data["findings"]:
+        raise ValueError(
+            "Claude response 'findings' must be a non-empty list. "
+            f"Got: {type(data['findings']).__name__}"
+        )
+
+    valid_statuses = {"PRESENT", "INCOMPLETE", "MISSING"}
+    for i, finding in enumerate(data["findings"]):
+        if not isinstance(finding, dict) or "status" not in finding:
+            raise ValueError(
+                f"Finding at index {i} is malformed (missing 'status'): {finding}"
+            )
+        if finding["status"] not in valid_statuses:
+            raise ValueError(
+                f"Finding '{finding.get('id', i)}' has invalid status "
+                f"'{finding['status']}'. Expected one of {sorted(valid_statuses)}."
+            )
+
     return data
 
 
@@ -575,7 +607,10 @@ def _scorecard_table(findings: list[dict], styles: dict) -> Table:
             Paragraph(str(present), styles["cell"]),
             Paragraph(str(incomplete), styles["cell"]),
             Paragraph(str(missing), styles["cell"]),
-            Paragraph(f"{present / total * 100:.0f}%", styles["cell"]),
+            Paragraph(
+                f"{present / total * 100:.0f}%" if total else "N/A",
+                styles["cell"],
+            ),
         ],
     ]
 
@@ -631,8 +666,9 @@ def _findings_table(findings: list[dict], styles: dict) -> Table:
             "MISSING": colors.HexColor("#FDEDEC"),
         }.get(status, colors.white)
 
-        evidence = finding.get("evidence") or "Not found in SOP"
-        recommendation = finding.get("recommendation") or "—"
+        evidence = str(finding.get("evidence") or "Not found in SOP")
+        recommendation = str(finding.get("recommendation") or "—")
+        evidence = evidence[:300] + ("…" if len(evidence) > 300 else "")
 
         row_styles.append(("BACKGROUND", (0, i), (-1, i), bg_color))
         row_styles.append(
@@ -641,12 +677,12 @@ def _findings_table(findings: list[dict], styles: dict) -> Table:
         row_styles.append(("TEXTCOLOR", (3, i), (3, i), colors.white))
 
         row = [
-            Paragraph(finding.get("id", ""), styles["cell_bold"]),
-            Paragraph(finding.get("item", ""), styles["cell"]),
-            Paragraph(finding.get("regulation", ""), styles["cell"]),
-            Paragraph(f"<b>{status}</b>", styles["cell_bold"]),
-            Paragraph(evidence[:300] + ("…" if len(evidence) > 300 else ""), styles["cell"]),
-            Paragraph(recommendation, styles["cell"]),
+            Paragraph(escape(str(finding.get("id", ""))), styles["cell_bold"]),
+            Paragraph(escape(str(finding.get("item", ""))), styles["cell"]),
+            Paragraph(escape(str(finding.get("regulation", ""))), styles["cell"]),
+            Paragraph(f"<b>{escape(status)}</b>", styles["cell_bold"]),
+            Paragraph(escape(evidence), styles["cell"]),
+            Paragraph(escape(recommendation), styles["cell"]),
         ]
         rows.append(row)
 
@@ -736,7 +772,7 @@ def generate_pdf_report(
 
     story.append(Paragraph("Overall GMP Readiness", styles["heading"]))
 
-    badge_data = [[Paragraph(overall_status, styles["badge"])]]
+    badge_data = [[Paragraph(escape(str(overall_status)), styles["badge"])]]
     badge_tbl = Table(badge_data, colWidths=[7.5 * inch])
     badge_tbl.setStyle(
         TableStyle(
@@ -753,7 +789,7 @@ def generate_pdf_report(
 
     # Rationale
     rationale_para = Paragraph(
-        f"<b>Rationale:</b> {review_data.get('overall_rationale', '')}",
+        f"<b>Rationale:</b> {escape(str(review_data.get('overall_rationale', '')))}",
         styles["rationale"],
     )
     story.append(rationale_para)
