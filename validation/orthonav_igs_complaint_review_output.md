@@ -1,19 +1,19 @@
-# Example SOP Review Output — Stryker Mako / IGS Complaint Handling SOP
+# Example SOP Review Output — Acme OrthoNav / IGS Complaint Handling SOP
 
-**SOP File:** `examples/stryker_mako_igs_complaint_handling_sop.txt`  
+**SOP File:** `examples/acme_orthonav_igs_complaint_handling_sop.txt`  
 **Document Number:** SOP-QA-CX-091, Rev. D  
 **Review Date:** 2026-05-11  
-**Device Class:** III (Mako SmartRobotics — PMA P150002; IGS Navigation — 510(k) K201847)  
+**Device Class:** III (OrthoNav SmartRobotics — PMA P150002; IGS Navigation — 510(k) K201847)  
 **SOP Type:** `complaint`  
 **Model:** `claude-sonnet-4-6`  
 **CLI Command:**
 
 ```bash
 python sop_review.py \
-  --file examples/stryker_mako_igs_complaint_handling_sop.txt \
+  --file examples/acme_orthonav_igs_complaint_handling_sop.txt \
   --sop-type complaint \
   --device-class III \
-  --output validation/mako_igs_complaint_review_report.pdf
+  --output validation/orthonav_igs_complaint_review_report.pdf
 ```
 
 ---
@@ -46,7 +46,7 @@ python sop_review.py \
 
 | ID | Checklist Item | Reg. Section | Status | Evidence | Recommendation |
 |---|---|---|---|---|---|
-| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the requirements for receiving, documenting, investigating, and determining Medical Device Report (MDR) reportability for customer complaints related to the Stryker Mako SmartRobotics Surgical System and Stryker Navigation System 2.0 (IGS)."* Specific to process, devices, and regulatory framework. | — |
+| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the requirements for receiving, documenting, investigating, and determining Medical Device Report (MDR) reportability for customer complaints related to the Acme OrthoNav SmartRobotics Surgical System and Acme Surgical Navigation System 2.0 (IGS)."* Specific to process, devices, and regulatory framework. | — |
 | U02 | Scope | 21 CFR 820.40 | **PRESENT** | Scope defines complaint using the 21 CFR 820.3(b) regulatory definition verbatim, lists both device families with their regulatory identifiers (PMA P150002, 510(k) K201847), identifies all complaint source types, and explicitly excludes internal NCRs, supplier complaints, and pre-market feedback with cross-references to applicable SOPs. | — |
 | U03 | Responsibilities | 21 CFR 820.20(b) | **PRESENT** | Five roles defined: Complaint Intake Coordinator (receipt, logging, acknowledgment, assignment), Product Line QA Engineer (investigation, MDR assessment), QA Manager (MDR final determination, submission, trend monitoring), and Field Service Engineer (field documentation). Timelines embedded within each responsibility. | — |
 | U04 | References | 21 CFR 820.40 | **PRESENT** | Comprehensive — regulatory citations (21 CFR 820.198 subsections, 21 CFR 803.50, 803.53), FDA guidance documents (MDR guidance 2016, Recalls guidance), standards (ISO 13485:2016 Sec 8.2.2, ISO 14971:2019), MedWatch 3500A, and 6 internal documents. Two device-specific Risk Management Files cited. | — |
@@ -77,7 +77,7 @@ python sop_review.py \
 
 3. **HIPAA / 21 CFR 803.9 alignment** — Section 7.1 correctly cites 21 CFR 803.9 for MDR patient confidentiality. Confirm the HIPAA cross-reference (SOP-IT-SEC-003) is current and that it addresses the specific PHI masking format required by FDA's Electronic Submissions System for MedWatch 3500A.
 
-4. **Dual-device scope complexity** — This SOP covers both a Class III PMA device (Mako) and a Class II 510(k) device (IGS Navigation). The MDR investigation steps (Step 3.2 functional testing protocols) reference separate test protocols (TP-MAK-FT-001 and TP-IGS-FT-001). Confirm both protocols are current-revision and included in the next SOP revision's References section update.
+4. **Dual-device scope complexity** — This SOP covers both a Class III PMA device (OrthoNav) and a Class II 510(k) device (IGS Navigation). The MDR investigation steps (Step 3.2 functional testing protocols) reference separate test protocols (TP-MAK-FT-001 and TP-IGS-FT-001). Confirm both protocols are current-revision and included in the next SOP revision's References section update.
 
 ---
 

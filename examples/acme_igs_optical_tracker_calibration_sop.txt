@@ -1,6 +1,6 @@
 STANDARD OPERATING PROCEDURE
 Document Number:  SOP-CAL-IGS-018
-Title:            Calibration of Stryker Navigation System Optical Tracking Camera
+Title:            Calibration of Acme Surgical Navigation System Optical Tracking Camera
 Department:       Biomedical Engineering / Metrology
 Effective Date:   2024-09-01
 Revision:         B
@@ -8,7 +8,7 @@ Revision:         B
 -------------------------------------------------------------------------------
 1. PURPOSE
 -------------------------------------------------------------------------------
-This procedure establishes the calibration requirements for the Stryker
+This procedure establishes the calibration requirements for the Acme Surgical
 Navigation System 2.0 Optical Tracking Camera (OTC) used in intraoperative
 image-guided surgery (IGS) workflows. Calibration ensures positional accuracy
 meets the ≤1.0 mm root mean square (RMS) spatial error specification required
@@ -17,18 +17,18 @@ for safe navigated surgical guidance.
 -------------------------------------------------------------------------------
 2. SCOPE
 -------------------------------------------------------------------------------
-This SOP applies to all Stryker Navigation System 2.0 Optical Tracking Cameras
+This SOP applies to all Acme Surgical Navigation System 2.0 Optical Tracking Cameras
 (model NAV-OTC-200 series) in service at facilities under this institution's
 biomedical engineering maintenance agreement. It covers initial calibration
 on commissioning, periodic recalibration, and recalibration after any repair
 or optical component replacement.
 
 This SOP does not apply to:
-  - Stryker Navigation System 1.x legacy cameras (see SOP-CAL-IGS-009)
+  - Acme Surgical Navigation System 1.x legacy cameras (see SOP-CAL-IGS-009)
   - Fluoroscopic C-arm calibration (see SOP-CAL-RAD-004)
   - Software-only navigation upgrades
 
-The Stryker Navigation System 2.0 is classified as a Class II medical device
+The Acme Surgical Navigation System 2.0 is classified as a Class II medical device
 (510(k) K201847). Calibration activities must comply with 21 CFR 820.72.
 
 -------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ The Stryker Navigation System 2.0 is classified as a Class II medical device
 -------------------------------------------------------------------------------
 Biomedical Engineer (BME):
   - Performs all calibration steps per this SOP.
-  - Operates the Stryker NavCalibrate software tool.
+  - Operates the Acme Surgical NavCalibrate software tool.
   - Completes and signs the Calibration Record (Form CAL-IGS-018).
   - Applies calibration label per Section 9.4.
   - Escalates out-of-tolerance findings to the Supervisor immediately.
@@ -70,8 +70,8 @@ Internal Documents
   - SOP-CAL-003: Calibration Program for Measuring and Test Equipment
   - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
   - SOP-QA-CAPA-007: Corrective and Preventive Action
-  - Stryker NavCalibrate User Guide v3.1 (document NAV-UG-031)
-  - Stryker Navigation System 2.0 Service Manual (document NAV-SM-200)
+  - Acme Surgical NavCalibrate User Guide v3.1 (document NAV-UG-031)
+  - Acme Surgical Navigation System 2.0 Service Manual (document NAV-SM-200)
 
 -------------------------------------------------------------------------------
 5. DEFINITIONS AND ABBREVIATIONS
@@ -94,7 +94,7 @@ TRE       Target Registration Error — error at a surgical target point
 -------------------------------------------------------------------------------
 6.1  Calibration Reference Standards (all must carry current NIST-traceable
      calibration certificates; do not use if certificate is expired)
-     - Stryker NavCalibration Reference Frame Kit (Part No. NAV-REF-KIT-001)
+     - Acme Surgical NavCalibration Reference Frame Kit (Part No. NAV-REF-KIT-001)
        Traceable to NIST via calibration certificate on file (BME Lab binder
        CAL-REF-IGS); recalibration interval: 12 months
      - Certified dimensional reference bar, 300 mm ±0.005 mm
@@ -103,7 +103,7 @@ TRE       Target Registration Error — error at a surgical target point
        (NIST-traceable; Cal Tag: REF-SPH-007)
 
 6.2  Test and Measurement Equipment
-     - Stryker NavCalibrate software v3.1 (installed on dedicated calibration
+     - Acme Surgical NavCalibrate software v3.1 (installed on dedicated calibration
        laptop, asset tag BME-LAP-003; software version verified prior to use)
      - Digital thermometer/hygrometer, ±0.3°C / ±2% RH (Cal Tag: THM-0012)
      - Spirit level (Cal Tag: LVL-0004)
@@ -171,7 +171,7 @@ STEP 3 — Physical Inspection of OTC
               if any are found loose; record on Form CAL-IGS-018.
          3.3  Inspect reference frame retroreflective markers for
               delamination or damage. Replace any damaged markers using
-              Stryker-approved replacement kit (Part No. NAV-MKR-010)
+              Acme Surgical-approved replacement kit (Part No. NAV-MKR-010)
               before proceeding.
 
 STEP 4 — Volumetric Accuracy Measurement (NavCalibrate Guided Procedure)

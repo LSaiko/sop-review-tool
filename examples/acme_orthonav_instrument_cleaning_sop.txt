@@ -1,6 +1,6 @@
 STANDARD OPERATING PROCEDURE
 Document Number:  SOP-CLEAN-MAK-033
-Title:            Pre-Sterilization Cleaning of Mako SmartRobotics Reusable Instrument Set
+Title:            Pre-Sterilization Cleaning of OrthoNav SmartRobotics Reusable Instrument Set
 Department:       Central Sterile Processing / Quality Operations
 Effective Date:   2025-01-15
 Revision:         A
@@ -9,7 +9,7 @@ Revision:         A
 1. PURPOSE
 -------------------------------------------------------------------------------
 This procedure establishes the manual and automated cleaning requirements for
-reusable Mako SmartRobotics surgical instruments prior to sterilization,
+reusable OrthoNav SmartRobotics surgical instruments prior to sterilization,
 to remove biological soil, lubricant residue, and bone cement particulates
 that could compromise sterility assurance or cause instrument malfunction
 during robotic-assisted total knee and hip arthroplasty procedures.
@@ -17,19 +17,19 @@ during robotic-assisted total knee and hip arthroplasty procedures.
 -------------------------------------------------------------------------------
 2. SCOPE
 -------------------------------------------------------------------------------
-This SOP applies to the following reusable components of the Mako
+This SOP applies to the following reusable components of the OrthoNav
 SmartRobotics Instrument Set (Catalog No. 7,207-052 series):
-  - Mako bone cutting burrs (reusable, titanium alloy, multiple sizes)
+  - OrthoNav bone cutting burrs (reusable, titanium alloy, multiple sizes)
   - Burr shaft assemblies and locking collets
   - Robotic arm drape frame components (non-sterile barrier side)
   - Leg positioner clamps and adapters
 
 This SOP does not apply to:
   - Single-use components (discard per SOP-WAS-001 after each case)
-  - The robotic arm itself (see SOP-CLEAN-MAK-010: Mako System Surface Wipe-Down)
+  - The robotic arm itself (see SOP-CLEAN-MAK-010: OrthoNav System Surface Wipe-Down)
   - Implant trials or final implant components
 
-All Mako SmartRobotics components addressed here are accessories to a
+All OrthoNav SmartRobotics components addressed here are accessories to a
 Class III medical device (PMA P150002). Cleaning validation was performed
 per AAMI TIR30 and ISO 15883.
 
@@ -75,11 +75,11 @@ Standards
     Perioperative Practice, 2024 — Instrument Processing
 
 Internal Documents
-  - SOP-CLEAN-MAK-010: Mako System Surface Wipe-Down (OR use)
+  - SOP-CLEAN-MAK-010: OrthoNav System Surface Wipe-Down (OR use)
   - SOP-CAL-WD-007: Washer-Disinfector Qualification and Cycle Verification
   - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
   - SOP-WAS-001: Medical Waste Disposal
-  - IFU-MAK-INST-001: Mako Instrument Set Instructions for Use (manufacturer IFU)
+  - IFU-MAK-INST-001: OrthoNav Instrument Set Instructions for Use (manufacturer IFU)
   - Cleaning Validation Report: CVR-MAK-033-A (on file, QA Records Room)
 
 -------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ WD         Washer-Disinfector
 -------------------------------------------------------------------------------
 6. MATERIALS AND EQUIPMENT
 -------------------------------------------------------------------------------
-6.1  Cleaning Agents (approved for Mako instruments per CVR-MAK-033-A)
+6.1  Cleaning Agents (approved for OrthoNav instruments per CVR-MAK-033-A)
      - Enzymatic detergent: Prolystica 2X Concentrate (diluted 1:64 in
        RO water, 45–55 °C), approved per IFU-MAK-INST-001, Section 6
      - Neutral pH instrument lubricant: Instrument Milk (applied post-clean,
@@ -113,12 +113,12 @@ WD         Washer-Disinfector
 6.2  Automated Equipment
      - Getinge HS 66 Washer-Disinfector, Unit WD-03 (see SOP-CAL-WD-007
        for cycle qualification records)
-     - Designated instrument trays for Mako burr sets (Tray IDs: MAK-TR-01
+     - Designated instrument trays for OrthoNav burr sets (Tray IDs: MAK-TR-01
        through MAK-TR-08; labeled on tray)
 
 6.3  Manual Cleaning Supplies
      - Soft-bristle nylon brush set, sizes 2 mm and 5 mm (lumen brushes)
-       — dedicated to Mako instruments, color-coded RED
+       — dedicated to OrthoNav instruments, color-coded RED
      - Non-metallic pick for cement particulate removal
      - Ultrasonic cleaner (if available): Branson 5800, Unit US-02
        (15-minute cycle at 40 kHz, enzymatic solution)
@@ -149,7 +149,7 @@ WD         Washer-Disinfector
        of appearance; do not reuse from previous shift.
 
 7.4  Sharps Safety
-     - Mako bone cutting burrs have sharp cutting edges even after use.
+     - OrthoNav bone cutting burrs have sharp cutting edges even after use.
      - Always handle burrs with the dedicated non-slip burr grip tool
        (Part No. MAK-TL-GRIP-001); never grasp bare cutting edge.
      - Report all sharps injuries immediately per SOP-SAF-010.
@@ -184,7 +184,7 @@ STEP 3 — Manual Pre-Clean (Enzymatic)
               with the calibrated digital thermometer (if available); record
               on Form CS-CL-033. Verify solution pH is 6.0–8.0.
          3.2  Fully submerge instruments. Soak for minimum 10 minutes.
-         3.3  Using the 2 mm lumen brush (red-handled, Mako-dedicated),
+         3.3  Using the 2 mm lumen brush (red-handled, OrthoNav-dedicated),
               scrub all lumen channels of burrs and collets with overlapping
               strokes (minimum 5 full passes per lumen). Flush lumens
               with syringe of enzymatic solution after brushing.
@@ -196,9 +196,9 @@ STEP 3 — Manual Pre-Clean (Enzymatic)
          3.6  Verify no visible soil remains. If soil persists, repeat Step 3.
 
 STEP 4 — Automated Washer-Disinfector Cycle
-         4.1  Load instruments into designated Mako trays (MAK-TR-01 through
+         4.1  Load instruments into designated OrthoNav trays (MAK-TR-01 through
               MAK-TR-08) per the tray configuration guide posted on WD-03.
-         4.2  Confirm WD-03 is loaded with the Mako Validated Cycle (Cycle 4).
+         4.2  Confirm WD-03 is loaded with the OrthoNav Validated Cycle (Cycle 4).
          4.3  Run Cycle 4. Cycle parameters (per SOP-CAL-WD-007):
               - Pre-wash: cold RO water, 2 min
               - Wash: Prolystica 1:200, 55 °C, 5 min

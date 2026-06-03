@@ -1,19 +1,19 @@
-# Example SOP Review Output — Stryker Mako Instrument Cleaning SOP
+# Example SOP Review Output — Acme OrthoNav Instrument Cleaning SOP
 
-**SOP File:** `examples/stryker_mako_instrument_cleaning_sop.txt`  
+**SOP File:** `examples/acme_orthonav_instrument_cleaning_sop.txt`  
 **Document Number:** SOP-CLEAN-MAK-033, Rev. A  
 **Review Date:** 2026-05-11  
-**Device Class:** III (Mako SmartRobotics Accessories — PMA P150002)  
+**Device Class:** III (OrthoNav SmartRobotics Accessories — PMA P150002)  
 **SOP Type:** `cleaning`  
 **Model:** `claude-sonnet-4-6`  
 **CLI Command:**
 
 ```bash
 python sop_review.py \
-  --file examples/stryker_mako_instrument_cleaning_sop.txt \
+  --file examples/acme_orthonav_instrument_cleaning_sop.txt \
   --sop-type cleaning \
   --device-class III \
-  --output validation/mako_cleaning_review_report.pdf
+  --output validation/orthonav_cleaning_review_report.pdf
 ```
 
 ---
@@ -46,12 +46,12 @@ python sop_review.py \
 
 | ID | Checklist Item | Reg. Section | Status | Evidence | Recommendation |
 |---|---|---|---|---|---|
-| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the manual and automated cleaning requirements for reusable Mako SmartRobotics surgical instruments prior to sterilization, to remove biological soil, lubricant residue, and bone cement particulates that could compromise sterility assurance or cause instrument malfunction..."* Clear, specific, and process-tied. | — |
+| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the manual and automated cleaning requirements for reusable OrthoNav SmartRobotics surgical instruments prior to sterilization, to remove biological soil, lubricant residue, and bone cement particulates that could compromise sterility assurance or cause instrument malfunction..."* Clear, specific, and process-tied. | — |
 | U02 | Scope | 21 CFR 820.40 | **PRESENT** | Scope enumerates specific component catalog numbers (Catalog No. 7,207-052 series), lists four component types, and explicitly excludes single-use components, the robotic arm itself, and implant trials with cross-references to applicable SOPs. | — |
 | U03 | Responsibilities | 21 CFR 820.20(b) | **PRESENT** | Four roles defined: CSP Tech (performs, logs), CSP Supervisor (reviews, approves, initiates NCR), BME (washer-disinfector maintenance), QA Manager (approves SOP). Escalation paths and timelines defined. | — |
 | U04 | References | 21 CFR 820.40 | **PRESENT** | Regulatory (21 CFR 820.70(e)(f), 820.90, 820.180), standards (AAMI TIR30, ISO 15883-1, AAMI ST79, AORN Guidelines 2024), and 6 internal documents including the manufacturer IFU (IFU-MAK-INST-001) and Cleaning Validation Report (CVR-MAK-033-A). | — |
 | U05 | Definitions / Abbreviations | 21 CFR 820.3 | **PRESENT** | 11 terms defined. Notably includes a definition of A0 Value with the acceptance threshold (≥600) embedded in the definition — strong practice for a cleaning SOP where A0 is the primary disinfection metric. | — |
-| U06 | Materials and Equipment List | 21 CFR 820.70(g) | **PRESENT** | Section 6 details cleaning agents with approved dilution ratios and temperature ranges (Prolystica 1:64 at 45–55°C), automated equipment with unit IDs (WD-03), manual cleaning tools color-coded for Mako dedication (RED), RO water quality requirement (≤5 µS/cm), and consumables. | — |
+| U06 | Materials and Equipment List | 21 CFR 820.70(g) | **PRESENT** | Section 6 details cleaning agents with approved dilution ratios and temperature ranges (Prolystica 1:64 at 45–55°C), automated equipment with unit IDs (WD-03), manual cleaning tools color-coded for OrthoNav dedication (RED), RO water quality requirement (≤5 µS/cm), and consumables. | — |
 | U07 | Safety Precautions / PPE Requirements | 21 CFR 820.70(e) | **PRESENT** | Decontamination zone and clean assembly zone PPE specified separately. Chemical hazard (enzymatic detergent), sharps safety for burr edges (dedicated grip tool), and first aid for detergent eye contact all addressed. SDS reference included. | — |
 | U08 | Step-by-Step Procedure | 21 CFR 820.40 | **PRESENT** | Eight numbered steps with sub-steps in action-verb format: point-of-use pre-treatment, receive and sort, manual pre-clean (enzymatic), automated WD cycle (with parameters), post-wash visual inspection, lubrication, packaging, and documentation. Inline references to forms and cross-SOPs are consistent throughout. | — |
 | U09 | Documentation / Forms / Records | 21 CFR 820.180 | **PRESENT** | Section 9 specifies Form CS-CL-033 (cleaning log), WD-03 cycle printout attachment requirement, NCR form, and CVR-MAK-033-A. Retention stated per 21 CFR 820.180 ("device useful life + 2 years"). | — |
@@ -77,7 +77,7 @@ python sop_review.py \
 
 3. **Cleaning validation cross-reference** — CVR-MAK-033-A is referenced but not described. Consider adding a note in Section 9 that the CVR is reviewed each time this SOP is revised, to ensure the SOP continues to reflect validated parameters.
 
-4. **Loaner instruments** — The frequency schedule addresses loaners. Confirm the loaner instrument quarantine and receipt inspection steps are aligned with SOP-QC-MAK-010 (Approved Supplier List) for third-party loaner sets.
+4. **Loaner instruments** — The frequency schedule addresses loaners. Confirm the loaner instrument quarantine and receipt inspection steps are aligned with SOP-QC-ONV-010 (Approved Supplier List) for third-party loaner sets.
 
 ---
 

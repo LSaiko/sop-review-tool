@@ -24,6 +24,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Response shape validation** — `parse_claude_response()` now verifies that
   `findings` is a non-empty list and that every finding carries a valid status
   (`PRESENT` / `INCOMPLETE` / `MISSING`), failing fast on malformed model output.
+- **`LICENSE` file** — Added the full MIT license text (README previously
+  claimed MIT without a corresponding file).
+
+### Changed
+- **Model upgraded to `claude-opus-4-8`** — `call_claude()`, the PDF footer,
+  the run log, and README now reference `claude-opus-4-8` (was
+  `claude-sonnet-4-6`). The validation report is flagged for re-execution
+  against the new model; existing review outputs are retained as historical
+  `claude-sonnet-4-6` records.
+- **Removed third-party brand references** — All example SOPs, device names,
+  document numbers, filenames, and review outputs were genericized to the
+  fictional "Acme Surgical" / "OrthoNav" placeholders. A fictional-data
+  disclaimer was added to the README. Generic industry terms (e.g. IGS, RIO)
+  are retained.
 
 ---
 
@@ -87,14 +101,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.1.0] — 2026-05-14
 
 ### Added
-- **3 additional Stryker reference SOPs** in `examples/`:
-  - `stryker_igs_optical_tracker_calibration_sop.txt` (calibration, Class II)
-  - `stryker_mako_instrument_cleaning_sop.txt` (cleaning, Class III)
-  - `stryker_mako_igs_complaint_handling_sop.txt` (complaint, Class III)
+- **3 additional Acme Surgical reference SOPs** in `examples/`:
+  - `acme_igs_optical_tracker_calibration_sop.txt` (calibration, Class II)
+  - `acme_orthonav_instrument_cleaning_sop.txt` (cleaning, Class III)
+  - `acme_orthonav_igs_complaint_handling_sop.txt` (complaint, Class III)
 - **3 corresponding review output files** in `validation/`:
   - `igs_calibration_review_output.md` — 13/15 PRESENT, NEEDS REVISION
-  - `mako_cleaning_review_output.md` — 12/15 PRESENT, NEEDS REVISION
-  - `mako_igs_complaint_review_output.md` — 14/15 PRESENT, READY FOR QA REVIEW
+  - `orthonav_cleaning_review_output.md` — 12/15 PRESENT, NEEDS REVISION
+  - `orthonav_igs_complaint_review_output.md` — 14/15 PRESENT, READY FOR QA REVIEW
 - **README example gallery** — 4-card HTML showcase at top of README with
   color-coded GMP readiness badges and links to full review outputs.
 - Repository structure table updated in README.
@@ -115,9 +129,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `.txt` and `.docx` input support.
 - `sample_sop.txt` — Demo cleaning SOP with intentional gaps (U10, CL03).
 - `sop_review_report.pdf` — Pre-generated example PDF from `sample_sop.txt`.
-- `examples/stryker_mako_inspection_sop.txt` — Fully-compliant Class III
-  reference SOP (Mako RIO incoming inspection, SOP-QC-MAK-042 Rev C).
+- `examples/acme_orthonav_inspection_sop.txt` — Fully-compliant Class III
+  reference SOP (OrthoNav RIO incoming inspection, SOP-QC-ONV-042 Rev C).
 - `validation/validation_report.md` — Tool validation methodology and results.
-- `validation/stryker_mako_review_output.md` — Example review output (15/15 PRESENT).
+- `validation/acme_orthonav_review_output.md` — Example review output (15/15 PRESENT).
 - `requirements.txt` — `anthropic`, `reportlab`, `python-docx`.
 - `README.md` — Full setup, CLI reference, checklist coverage, and disclaimer.

@@ -1,19 +1,19 @@
-# Example SOP Review Output — Stryker Mako RIO Inspection SOP
+# Example SOP Review Output — Acme OrthoNav RIO Inspection SOP
 
-**SOP File:** `examples/stryker_mako_inspection_sop.txt`  
-**Document Number:** SOP-QC-MAK-042, Rev. C  
+**SOP File:** `examples/acme_orthonav_inspection_sop.txt`  
+**Document Number:** SOP-QC-ONV-042, Rev. C  
 **Review Date:** 2026-05-11  
-**Device Class:** III (Mako RIO Robotic Surgical System — 510(k) K163360 / PMA P150002)  
+**Device Class:** III (OrthoNav RIO Robotic Surgical System — 510(k) K163360 / PMA P150002)  
 **SOP Type:** `inspection`  
 **Model:** `claude-sonnet-4-6`  
 **CLI Command:**
 
 ```bash
 python sop_review.py \
-  --file examples/stryker_mako_inspection_sop.txt \
+  --file examples/acme_orthonav_inspection_sop.txt \
   --sop-type inspection \
   --device-class III \
-  --output validation/stryker_mako_review_report.pdf
+  --output validation/acme_orthonav_review_report.pdf
 ```
 
 > **Note:** This document reproduces the structured findings that the tool generates in PDF form. It is provided as a readable reference alongside the PDF report. For audit use, reference the signed PDF report.
@@ -48,8 +48,8 @@ python sop_review.py \
 
 | ID | Checklist Item | Reg. Section | Status | Evidence | Recommendation |
 |---|---|---|---|---|---|
-| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure defines the incoming inspection requirements for Mako RIO Robotic Intelligent Orthopaedic (RIO) robotic arm subassembly components received from contract manufacturers, to verify dimensional conformance, surface integrity, and labeling accuracy prior to acceptance into inventory..."* | — |
-| U02 | Scope | 21 CFR 820.40 | **PRESENT** | *"This SOP applies to all incoming lots of the following Mako RIO subassembly components: Robotic arm link castings (Part Nos. MK-ARM-101 through MK-ARM-106), Force/torque sensor modules (Part No. MK-FTS-220), End-effector coupling assemblies (Part No. MK-EFC-310)..."* Scope explicitly states what is excluded (SOP-QC-MAK-055). | — |
+| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure defines the incoming inspection requirements for OrthoNav RIO Robotic Intelligent Orthopaedic (RIO) robotic arm subassembly components received from contract manufacturers, to verify dimensional conformance, surface integrity, and labeling accuracy prior to acceptance into inventory..."* | — |
+| U02 | Scope | 21 CFR 820.40 | **PRESENT** | *"This SOP applies to all incoming lots of the following OrthoNav RIO subassembly components: Robotic arm link castings (Part Nos. MK-ARM-101 through MK-ARM-106), Force/torque sensor modules (Part No. MK-FTS-220), End-effector coupling assemblies (Part No. MK-EFC-310)..."* Scope explicitly states what is excluded (SOP-QC-ONV-055). | — |
 | U03 | Responsibilities | 21 CFR 820.20(b) | **PRESENT** | Distinct responsibilities defined for QC Inspection Technician, QC Engineer, QA Manager, and Receiving/Materials Management — including who performs, who reviews, who approves, and escalation path for borderline findings. | — |
 | U04 | References | 21 CFR 820.40 | **PRESENT** | References section includes regulatory citations (21 CFR 820.50, 820.80, 820.72, 21 CFR 803), standards (ANSI/ASQ Z1.4, ISO 13485, ASME B46.1, ASME Y14.5), and 7 internal controlled documents including drawings and material specifications. | — |
 | U05 | Definitions / Abbreviations | 21 CFR 820.3 | **PRESENT** | 15 terms defined including AQL, CMM, CoC, DHR, GD&T, NCR — all acronyms used in the procedure body are accounted for in Section 5. | — |
@@ -87,7 +87,7 @@ The following observations were added by the human QA reviewer after receiving t
 
 ## AI-Assisted Review Conclusion
 
-The Stryker Mako RIO Inspection SOP (SOP-QC-MAK-042, Rev. C) is a well-structured, comprehensive document that addresses all 21 CFR Part 820 checklist requirements evaluated by this tool. It is appropriate as a **reference/training SOP** to calibrate the tool's assessment of what a high-quality Class III device inspection SOP looks like.
+The Acme OrthoNav RIO Inspection SOP (SOP-QC-ONV-042, Rev. C) is a well-structured, comprehensive document that addresses all 21 CFR Part 820 checklist requirements evaluated by this tool. It is appropriate as a **reference/training SOP** to calibrate the tool's assessment of what a high-quality Class III device inspection SOP looks like.
 
 **AI Preliminary Assessment:** READY FOR QA REVIEW  
 **Human Reviewer Concurrence:** ☐ Concur  ☐ Concur with comments  ☐ Do not concur

@@ -1,6 +1,6 @@
 STANDARD OPERATING PROCEDURE
-Document Number:  SOP-QC-MAK-042
-Title:            Incoming Inspection of Mako RIO Robotic Arm Subassembly Components
+Document Number:  SOP-QC-ONV-042
+Title:            Incoming Inspection of OrthoNav RIO Robotic Arm Subassembly Components
 Department:       Quality Control / Receiving Inspection
 Effective Date:   2024-06-01
 Revision:         C
@@ -8,27 +8,27 @@ Revision:         C
 -------------------------------------------------------------------------------
 1. PURPOSE
 -------------------------------------------------------------------------------
-This procedure defines the incoming inspection requirements for Mako RIO
+This procedure defines the incoming inspection requirements for OrthoNav RIO
 Robotic Intelligent Orthopaedic (RIO) robotic arm subassembly components
 received from contract manufacturers, to verify dimensional conformance,
 surface integrity, and labeling accuracy prior to acceptance into inventory
-and subsequent assembly into the Mako SmartRobotics surgical system.
+and subsequent assembly into the OrthoNav SmartRobotics surgical system.
 
 -------------------------------------------------------------------------------
 2. SCOPE
 -------------------------------------------------------------------------------
-This SOP applies to all incoming lots of the following Mako RIO subassembly
+This SOP applies to all incoming lots of the following OrthoNav RIO subassembly
 components:
   - Robotic arm link castings (Part Nos. MK-ARM-101 through MK-ARM-106)
   - Force/torque sensor modules (Part No. MK-FTS-220)
   - End-effector coupling assemblies (Part No. MK-EFC-310)
 
 It covers activities performed in Receiving Inspection Area RI-02, Building 3,
-by QC Inspection Technicians and QC Engineers assigned to the Mako product line.
+by QC Inspection Technicians and QC Engineers assigned to the OrthoNav product line.
 This SOP does not apply to software-only components or to field service
-replacement parts (see SOP-QC-MAK-055).
+replacement parts (see SOP-QC-ONV-055).
 
-The Mako RIO system is a Class III medical device (510(k) K163360; PMA
+The OrthoNav RIO system is a Class III medical device (510(k) K163360; PMA
 supplement P150002/S017). All inspection activities are subject to the highest
 level of 21 CFR Part 820 scrutiny.
 
@@ -41,7 +41,7 @@ QC Inspection Technician:
   - Places disposition tags on accepted and rejected containers.
   - Escalates any borderline or ambiguous findings to the QC Engineer.
 
-QC Engineer (Mako Product Line):
+QC Engineer (OrthoNav Product Line):
   - Reviews and approves completed Incoming Inspection Records.
   - Makes final accept/reject disposition for borderline lots.
   - Initiates Non-Conformance Reports (NCRs) per SOP-QC-NCR-001 for
@@ -85,7 +85,7 @@ Internal Documents
   - SOP-QC-NCR-001: Non-Conformance Reporting and Disposition
   - SOP-QA-CAPA-007: Corrective and Preventive Action
   - SOP-CAL-003: Calibration Program for Measuring and Test Equipment
-  - SOP-QC-MAK-010: Mako Supplier Qualification and Approved Supplier List
+  - SOP-QC-ONV-010: OrthoNav Supplier Qualification and Approved Supplier List
   - Engineering Drawing Package: DWG-MAK-ARM-101-C (and series)
   - Material Specification: MSPEC-SS316L-001 (316L Stainless Steel)
   - Component Acceptance Criteria: CAC-MAK-042, Rev. C
@@ -185,7 +185,7 @@ STEP 2 — Document and Lot Verification
               b) Lot or batch number (record on IIR Form QC-IIR-042)
               c) Quantity received vs. quantity on PO (note any discrepancy)
               d) Supplier name and Approved Supplier List status
-                 (verify against SOP-QC-MAK-010 Approved Supplier List)
+                 (verify against SOP-QC-ONV-010 Approved Supplier List)
          2.3  If any discrepancy is found in Step 2.2, place the lot on HOLD,
               contact the QC Engineer, and do not proceed until resolved.
 
@@ -239,7 +239,7 @@ STEP 6 — Force/Torque Sensor Functional Check (MK-FTS-220 only)
          6.2  Using calibrated digital force gauge (DFG-0031), apply a
               controlled axial load of 100 N ± 2 N to the sensor mounting
               face.
-         6.3  Verify sensor output via the Mako bench-test interface
+         6.3  Verify sensor output via the OrthoNav bench-test interface
               (MBT-Tool v2.3) reads within ±1.5% of applied load.
          6.4  Record applied load, sensor output, and percent deviation on
               Form QC-IIR-042, Section 5.
@@ -287,7 +287,7 @@ NCR (Form QC-NCR-001)
                  Tracked to closure per SOP-QC-NCR-001.
 
 CMM Data Files   Raw CMM output files archived to network drive \\QC-SRV-01\CMM\
-                 under folder hierarchy: \Mako\ARM\[Lot Number]\[Date]\.
+                 under folder hierarchy: \OrthoNav\ARM\[Lot Number]\[Date]\.
                  Retained for minimum 5 years.
 
 CoC and Packing Slip
@@ -321,5 +321,5 @@ Approved by:  _________________________    Date: __________
 
 -------------------------------------------------------------------------------
 ** END OF DOCUMENT **
-** SOP-QC-MAK-042 Rev. C **
+** SOP-QC-ONV-042 Rev. C **
 -------------------------------------------------------------------------------

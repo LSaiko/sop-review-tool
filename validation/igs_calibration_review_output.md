@@ -1,16 +1,16 @@
-# Example SOP Review Output — Stryker IGS Optical Tracker Calibration SOP
+# Example SOP Review Output — Acme IGS Optical Tracker Calibration SOP
 
-**SOP File:** `examples/stryker_igs_optical_tracker_calibration_sop.txt`  
+**SOP File:** `examples/acme_igs_optical_tracker_calibration_sop.txt`  
 **Document Number:** SOP-CAL-IGS-018, Rev. B  
 **Review Date:** 2026-05-11  
-**Device Class:** II (Stryker Navigation System 2.0 — 510(k) K201847)  
+**Device Class:** II (Acme Surgical Navigation System 2.0 — 510(k) K201847)  
 **SOP Type:** `calibration`  
 **Model:** `claude-sonnet-4-6`  
 **CLI Command:**
 
 ```bash
 python sop_review.py \
-  --file examples/stryker_igs_optical_tracker_calibration_sop.txt \
+  --file examples/acme_igs_optical_tracker_calibration_sop.txt \
   --sop-type calibration \
   --device-class II \
   --output validation/igs_calibration_review_report.pdf
@@ -46,12 +46,12 @@ python sop_review.py \
 
 | ID | Checklist Item | Reg. Section | Status | Evidence | Recommendation |
 |---|---|---|---|---|---|
-| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the calibration requirements for the Stryker Navigation System 2.0 Optical Tracking Camera (OTC)... Calibration ensures positional accuracy meets the ≤1.0 mm root mean square (RMS) spatial error specification required for safe navigated surgical guidance."* | — |
+| U01 | Purpose Statement | 21 CFR 820.40 | **PRESENT** | *"This procedure establishes the calibration requirements for the Acme Surgical Navigation System 2.0 Optical Tracking Camera (OTC)... Calibration ensures positional accuracy meets the ≤1.0 mm root mean square (RMS) spatial error specification required for safe navigated surgical guidance."* | — |
 | U02 | Scope | 21 CFR 820.40 | **PRESENT** | Scope identifies specific model series (NAV-OTC-200), trigger conditions (commissioning, periodic, post-repair), and explicit exclusions (Nav 1.x, fluoroscopic C-arm, software-only upgrades). | — |
 | U03 | Responsibilities | 21 CFR 820.20(b) | **PRESENT** | Biomedical Engineer (performs), BME Supervisor (reviews/countersigns, disposition), and QA Manager (approves, audits) all defined with distinct obligations including escalation path for out-of-tolerance findings. | — |
-| U04 | References | 21 CFR 820.40 | **PRESENT** | Regulatory references (21 CFR 820.72, 820.75), three applicable standards (ANSI/NCSL Z540-1, ISO 10360-2, ASTM F2554-10), and five internal controlled documents including the Stryker NavCalibrate User Guide and Service Manual. | — |
+| U04 | References | 21 CFR 820.40 | **PRESENT** | Regulatory references (21 CFR 820.72, 820.75), three applicable standards (ANSI/NCSL Z540-1, ISO 10360-2, ASTM F2554-10), and five internal controlled documents including the Acme Surgical NavCalibrate User Guide and Service Manual. | — |
 | U05 | Definitions / Abbreviations | 21 CFR 820.3 | **PRESENT** | 10 terms defined including AUC, CASS, RMS, and TRE — all acronyms used in the procedure body are present in Section 5. | — |
-| U06 | Materials and Equipment List | 21 CFR 820.70(g) | **INCOMPLETE** | *"Stryker NavCalibration Reference Frame Kit (Part No. NAV-REF-KIT-001) Traceable to NIST via calibration certificate on file (BME Lab binder CAL-REF-IGS); recalibration interval: 12 months"* — Equipment is listed with cal tags and traceability statements, but the specific calibration due dates for each item are referenced by binder location rather than stated or tracked on the form. | Add a column to Form CAL-IGS-018 that captures the calibration due date for each reference standard used in that specific calibration event, ensuring a standalone audit-ready record. |
+| U06 | Materials and Equipment List | 21 CFR 820.70(g) | **INCOMPLETE** | *"Acme Surgical NavCalibration Reference Frame Kit (Part No. NAV-REF-KIT-001) Traceable to NIST via calibration certificate on file (BME Lab binder CAL-REF-IGS); recalibration interval: 12 months"* — Equipment is listed with cal tags and traceability statements, but the specific calibration due dates for each item are referenced by binder location rather than stated or tracked on the form. | Add a column to Form CAL-IGS-018 that captures the calibration due date for each reference standard used in that specific calibration event, ensuring a standalone audit-ready record. |
 | U07 | Safety Precautions / PPE Requirements | 21 CFR 820.70(e) | **PRESENT** | Section 7 covers ESD wrist strap for electronic components, nitrile gloves for reference sphere handling (with rationale re: oil contamination), IR Class 1M safety note, and environmental requirements with documented thresholds (18–24 °C, 30–70% RH). | — |
 | U08 | Step-by-Step Procedure | 21 CFR 820.40 | **PRESENT** | Eight numbered steps in action-verb format: environmental check, equipment verification, physical inspection, volumetric accuracy (NavCalibrate guided), point accuracy (sphere test), reference bar verification, disposition, and documentation. Acceptance criteria stated inline at each measurement step. | — |
 | U09 | Documentation / Forms / Records | 21 CFR 820.180 | **PRESENT** | Section 9 specifies Form CAL-IGS-018, NavCalibrate PDF certificate with archive path, NCR form, and calibration label specification (Section 9.4). Retention stated as "minimum device useful life + 2 years, not less than 5 years." | — |
@@ -71,7 +71,7 @@ python sop_review.py \
 
 ## Reviewer Notes (Human Supplement)
 
-1. **C01 interval basis** — The 12-month interval is consistent with Stryker's recommended service interval in the NAV-SM-200 Service Manual. Adding a one-line citation to Section 9 ("Interval established per manufacturer service documentation NAV-SM-200, Section 4.2") would close this finding with minimal revision effort.
+1. **C01 interval basis** — The 12-month interval is consistent with Acme Surgical's recommended service interval in the NAV-SM-200 Service Manual. Adding a one-line citation to Section 9 ("Interval established per manufacturer service documentation NAV-SM-200, Section 4.2") would close this finding with minimal revision effort.
 
 2. **U06 equipment due dates** — The current approach (reference to binder) is administratively acceptable but creates a gap if the binder is not co-located with the record during an audit. A simple fix: add a "Cal Due Date" column to Form CAL-IGS-018 Section 2.
 

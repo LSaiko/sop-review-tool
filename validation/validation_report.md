@@ -6,6 +6,13 @@
 **Prepared By:** Calvin Yang  
 **Status:** VALIDATED — Suitable for Preliminary Assessment Use
 
+> ⚠️ **Re-validation pending.** This report documents validation performed
+> against `claude-sonnet-4-6`. As of 2026-06-03 the tool's active model was
+> upgraded to `claude-opus-4-8`. The test cases below must be re-executed
+> against the new model before the VALIDATED status applies to production use.
+> The review outputs in this directory remain as historical records of the
+> `claude-sonnet-4-6` runs and have not been altered.
+
 ---
 
 ## 1. Purpose
@@ -43,7 +50,7 @@ Two SOPs were authored specifically for validation, with **known ground truth** 
 | Test SOP | Type | Device Class | Known Gaps (intentional) |
 |---|---|---|---|
 | `sample_sop.txt` (bundled) | `cleaning` | II | U10 (Revision History), CL03 (NCR Procedure) |
-| `examples/stryker_mako_inspection_sop.txt` | `inspection` | III | None — fully compliant reference SOP |
+| `examples/acme_orthonav_inspection_sop.txt` | `inspection` | III | None — fully compliant reference SOP |
 
 A third negative-control test was run with a deliberately stripped SOP (internal only) containing 6 known MISSING items to validate detection rate.
 
@@ -77,7 +84,7 @@ Each test SOP was submitted to Claude five (5) times with identical prompts. Ove
 
 **Result:** 100% detection of known gaps. 0 false positives on known-present items. Overall status 100% consistent.
 
-### 4.2 Stryker Mako Inspection SOP (Inspection, Class III) — Fully Compliant Reference
+### 4.2 Acme OrthoNav Inspection SOP (Inspection, Class III) — Fully Compliant Reference
 
 | Run | Overall Status | False Positives (items incorrectly flagged) | JSON Valid | PDF Generated |
 |---|---|---|---|---|

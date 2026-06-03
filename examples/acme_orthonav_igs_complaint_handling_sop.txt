@@ -1,7 +1,7 @@
 STANDARD OPERATING PROCEDURE
 Document Number:  SOP-QA-CX-091
 Title:            Customer Complaint Intake, Investigation, and MDR Reportability
-                  Assessment for Mako SmartRobotics and IGS Navigation Systems
+                  Assessment for OrthoNav SmartRobotics and IGS Navigation Systems
 Department:       Post-Market Surveillance / Quality Assurance
 Effective Date:   2025-03-01
 Revision:         D
@@ -11,8 +11,8 @@ Revision:         D
 -------------------------------------------------------------------------------
 This procedure establishes the requirements for receiving, documenting,
 investigating, and determining Medical Device Report (MDR) reportability for
-customer complaints related to the Stryker Mako SmartRobotics Surgical System
-and Stryker Navigation System 2.0 (IGS). It ensures compliance with 21 CFR
+customer complaints related to the Acme OrthoNav SmartRobotics Surgical System
+and Acme Surgical Navigation System 2.0 (IGS). It ensures compliance with 21 CFR
 Part 820.198 and 21 CFR Part 803 (Medical Device Reporting).
 
 -------------------------------------------------------------------------------
@@ -21,8 +21,8 @@ Part 820.198 and 21 CFR Part 803 (Medical Device Reporting).
 This SOP applies to all complaints received by Quality Assurance from any
 source (phone, email, field service reports, sales representatives, health
 care facilities, patients, or regulatory authorities) regarding:
-  - Stryker Mako SmartRobotics System (PMA P150002 and supplements)
-  - Stryker Navigation System 2.0 (510(k) K201847)
+  - Acme OrthoNav SmartRobotics System (PMA P150002 and supplements)
+  - Acme Surgical Navigation System 2.0 (510(k) K201847)
 
 A complaint is defined as: any written, electronic, or oral communication
 that alleges deficiencies related to the identity, quality, durability,
@@ -90,7 +90,7 @@ Internal Documents
   - SOP-QA-MDR-001: Medical Device Reporting — MDR Submission Procedure
   - Form QA-CX-091: Complaint Record (in Pilgrim SmartSolve CMS)
   - Form QA-MDR-003: MDR Reportability Assessment
-  - Risk Management File: RMF-MAK-001 (Mako), RMF-IGS-001 (Navigation)
+  - Risk Management File: RMF-MAK-001 (OrthoNav), RMF-IGS-001 (Navigation)
 
 -------------------------------------------------------------------------------
 5. DEFINITIONS AND ABBREVIATIONS
@@ -173,7 +173,7 @@ STEP 1 — Complaint Receipt and Logging (CIC, within 24 hours)
 
 STEP 2 — Initial Triage and Assignment (CIC, within 1 business day)
          2.1  CIC reviews the complaint description and flags the primary
-              device family: Mako or IGS Navigation.
+              device family: OrthoNav or IGS Navigation.
          2.2  Assign complaint to the applicable Product Line QAE in SmartSolve.
          2.3  If the complaint alleges serious injury, malfunction potentially
               causing serious injury, or patient death:
@@ -190,7 +190,7 @@ STEP 3 — Technical Investigation (QAE, within 15 calendar days of assignment)
          3.2  If a returned device is available:
               a) Retrieve from quarantine; confirm condition before testing
               b) Perform functional testing per the applicable test protocol
-                 (TP-MAK-FT-001 for Mako; TP-IGS-FT-001 for Navigation)
+                 (TP-MAK-FT-001 for OrthoNav; TP-IGS-FT-001 for Navigation)
               c) Document test results in the Complaint Record
          3.3  Conduct Root Cause Analysis (RCA) using at minimum a
               fishbone/Ishikawa diagram or 5-Why analysis. Document RCA

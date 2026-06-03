@@ -6,7 +6,7 @@ An AI-powered CLI tool for **preliminary assessment** of Standard Operating Proc
 
 ---
 
-## Example Reports — Stryker Mako & IGS
+## Example Reports — Acme OrthoNav & IGS
 
 Four reference SOPs are included in [`examples/`](./examples/), each with a full review output in [`validation/`](./validation/). Click any card to read the complete findings.
 
@@ -14,10 +14,10 @@ Four reference SOPs are included in [`examples/`](./examples/), each with a full
 <tr>
 
 <td width="25%" valign="top" align="center">
-<a href="validation/stryker_mako_review_output.md">
+<a href="validation/acme_orthonav_review_output.md">
 <img src="https://img.shields.io/badge/CLASS%20III-READY%20FOR%20QA%20REVIEW-27AE60?style=for-the-badge&labelColor=1A252F" alt="READY FOR QA REVIEW"/><br/>
-<b>Mako RIO — Incoming Inspection</b><br/>
-<sub>SOP-QC-MAK-042 Rev C</sub><br/><br/>
+<b>OrthoNav RIO — Incoming Inspection</b><br/>
+<sub>SOP-QC-ONV-042 Rev C</sub><br/><br/>
 <code>inspection · Class III</code><br/><br/>
 ✅ 15/15 PRESENT<br/>
 AQL 1.0/4.0 · CMM dimensional<br/>
@@ -40,9 +40,9 @@ RMS ≤1.0 mm acceptance criteria<br/><br/>
 </td>
 
 <td width="25%" valign="top" align="center">
-<a href="validation/mako_cleaning_review_output.md">
+<a href="validation/orthonav_cleaning_review_output.md">
 <img src="https://img.shields.io/badge/CLASS%20III-NEEDS%20REVISION-F39C12?style=for-the-badge&labelColor=1A252F" alt="NEEDS REVISION"/><br/>
-<b>Mako — Instrument Set Cleaning</b><br/>
+<b>OrthoNav — Instrument Set Cleaning</b><br/>
 <sub>SOP-CLEAN-MAK-033 Rev A</sub><br/><br/>
 <code>cleaning · Class III</code><br/><br/>
 ✅ 12/15 PRESENT · ⚠️ 1 INCOMPLETE · ❌ 2 MISSING<br/>
@@ -53,9 +53,9 @@ Enzymatic + automated reprocessing<br/><br/>
 </td>
 
 <td width="25%" valign="top" align="center">
-<a href="validation/mako_igs_complaint_review_output.md">
+<a href="validation/orthonav_igs_complaint_review_output.md">
 <img src="https://img.shields.io/badge/CLASS%20III-READY%20FOR%20QA%20REVIEW-27AE60?style=for-the-badge&labelColor=1A252F" alt="READY FOR QA REVIEW"/><br/>
-<b>Mako / IGS — Complaint &amp; MDR</b><br/>
+<b>OrthoNav / IGS — Complaint &amp; MDR</b><br/>
 <sub>SOP-QA-CX-091 Rev D</sub><br/><br/>
 <code>complaint · Class III</code><br/><br/>
 ✅ 14/15 PRESENT · ⚠️ 1 INCOMPLETE<br/>
@@ -74,9 +74,9 @@ Three-question MDR screen<br/>
 
 ## What This Tool Does
 
-Medical device SOPs must conform to 21 CFR Part 820 (FDA Quality System Regulation) before they can be used in regulated manufacturing, inspection, or complaint-handling environments. Manual review is time-consuming and error-prone, especially for high-document-volume QMS environments (e.g., Stryker IGS, Mako Robotic Surgical System).
+Medical device SOPs must conform to 21 CFR Part 820 (FDA Quality System Regulation) before they can be used in regulated manufacturing, inspection, or complaint-handling environments. Manual review is time-consuming and error-prone, especially for high-document-volume QMS environments (e.g., Acme IGS, OrthoNav Robotic Surgical System).
 
-This tool uses **Claude** (`claude-sonnet-4-6`) as a senior FDA compliance specialist persona to:
+This tool uses **Claude** (`claude-opus-4-8`) as a senior FDA compliance specialist persona to:
 
 1. Parse a submitted SOP (`.txt` or `.docx`)
 2. Evaluate it against a tiered 21 CFR 820 checklist (universal + SOP-type-specific items)
@@ -85,7 +85,7 @@ This tool uses **Claude** (`claude-sonnet-4-6`) as a senior FDA compliance speci
 
 ### Training & Continuous Improvement
 
-The tool is designed to improve over time. By feeding **existing approved and audited SOPs** (e.g., cleared Stryker IGS / Mako documents) as training examples, reviewers can:
+The tool is designed to improve over time. By feeding **existing approved and audited SOPs** (e.g., cleared Acme IGS / OrthoNav documents) as training examples, reviewers can:
 
 - Calibrate Claude's assessment against known-good documents
 - Identify acceptable baseline language patterns for specific SOP types
@@ -167,12 +167,12 @@ python sop_review.py \
   --device-class II \
   --output demo_report.pdf
 
-# Review a Stryker Mako-style inspection SOP (Class III)
+# Review a Acme OrthoNav-style inspection SOP (Class III)
 python sop_review.py \
-  --file examples/stryker_mako_inspection_sop.txt \
+  --file examples/acme_orthonav_inspection_sop.txt \
   --sop-type inspection \
   --device-class III \
-  --output mako_review_report.pdf
+  --output orthonav_review_report.pdf
 
 # Review a PDF SOP directly
 python sop_review.py \
@@ -259,17 +259,17 @@ sop-review-tool/
 ├── sop_review_report.pdf                       # Example PDF output from sample_sop.txt
 │
 ├── examples/                                   # Reference SOPs for training and benchmarking
-│   ├── stryker_mako_inspection_sop.txt         # Mako RIO incoming inspection (Class III)
-│   ├── stryker_igs_optical_tracker_calibration_sop.txt  # IGS OTC calibration (Class II)
-│   ├── stryker_mako_instrument_cleaning_sop.txt         # Mako instrument set cleaning (Class III)
-│   └── stryker_mako_igs_complaint_handling_sop.txt      # Mako/IGS complaint & MDR (Class III)
+│   ├── acme_orthonav_inspection_sop.txt         # OrthoNav RIO incoming inspection (Class III)
+│   ├── acme_igs_optical_tracker_calibration_sop.txt  # IGS OTC calibration (Class II)
+│   ├── acme_orthonav_instrument_cleaning_sop.txt         # OrthoNav instrument set cleaning (Class III)
+│   └── acme_orthonav_igs_complaint_handling_sop.txt      # OrthoNav/IGS complaint & MDR (Class III)
 │
 └── validation/
     ├── validation_report.md                    # Tool validation: methodology, test cases, results
-    ├── stryker_mako_review_output.md           # Review output: Mako inspection SOP (15/15 PRESENT)
+    ├── acme_orthonav_review_output.md           # Review output: OrthoNav inspection SOP (15/15 PRESENT)
     ├── igs_calibration_review_output.md        # Review output: IGS calibration SOP (13/15, NEEDS REVISION)
-    ├── mako_cleaning_review_output.md          # Review output: Mako cleaning SOP (12/15, NEEDS REVISION)
-    └── mako_igs_complaint_review_output.md     # Review output: Complaint/MDR SOP (14/15, READY)
+    ├── orthonav_cleaning_review_output.md          # Review output: OrthoNav cleaning SOP (12/15, NEEDS REVISION)
+    └── orthonav_igs_complaint_review_output.md     # Review output: Complaint/MDR SOP (14/15, READY)
 ```
 
 ---
@@ -288,7 +288,7 @@ sop_review.py
     └── _findings_table()
 ```
 
-**Model:** `claude-sonnet-4-6`  
+**Model:** `claude-opus-4-8`  
 **System prompt:** Senior FDA compliance specialist persona (15 years QMS experience)  
 **Output format:** Structured JSON with per-item `status`, `evidence` quote, and `recommendation`  
 **PDF parsing:** `pdfplumber` with layout-preserving text extraction (`layout=True`)
@@ -319,3 +319,12 @@ All AI-generated findings must be validated against current FDA guidance, applic
 ## License
 
 MIT — free to use and adapt for portfolio, internal quality tooling, or commercial projects.
+See [LICENSE](LICENSE) for the full text.
+
+### Example data disclaimer
+
+All SOPs, device names ("Acme Surgical", "OrthoNav"), document numbers, and
+review outputs in `examples/` and `validation/` are **fictional**, created
+solely to demonstrate the tool. They do not represent any real company,
+product, or controlled document, and are not affiliated with or endorsed by
+any medical device manufacturer.

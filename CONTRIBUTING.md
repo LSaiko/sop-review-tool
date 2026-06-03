@@ -65,7 +65,7 @@ parser.add_argument(
 
 Create a realistic sample SOP file at:
 ```
-examples/stryker_<product>_<type>_sop.txt
+examples/acme_<product>_<type>_sop.txt
 ```
 
 Follow the format of the existing example SOPs:
