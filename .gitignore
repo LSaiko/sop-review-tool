@@ -25,6 +25,10 @@ ENV/
 findings.json
 *_findings.json
 
+# Test artifacts
+tests/results/
+.pytest_cache/
+
 # IDE / editor
 .vscode/
 .idea/

@@ -26,6 +26,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   (`PRESENT` / `INCOMPLETE` / `MISSING`), failing fast on malformed model output.
 - **`LICENSE` file** — Added the full MIT license text (README previously
   claimed MIT without a corresponding file).
+- **Test harness** (`tests/`) — `smoke_test.py` (offline, no API key) locks in
+  the robustness fixes and PDF rendering; `revalidate.py` (online) drives the
+  full CLI against every example SOP and compares to the documented baseline,
+  for re-validating after a model upgrade. `tests/README.md` documents both.
 
 ### Changed
 - **Model upgraded to `claude-opus-4-8`** — `call_claude()`, the PDF footer,
