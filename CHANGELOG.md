@@ -7,6 +7,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+- **ZeroDivisionError on empty findings** — the summary scorecard now shows a
+  pass rate of `N/A` instead of crashing when Claude returns no findings.
+- **Unescaped text broke PDF rendering** — all dynamic content in the report
+  (evidence quotes, recommendations, item names, status, rationale, badge) is
+  now XML-escaped, so SOP text containing `&`, `<`, or `>` no longer raises a
+  ReportLab paragraph parse error or garbles the output.
+- **`.docx` table content ignored** — `read_sop_file()` now also extracts Word
+  table cells, not just paragraphs, so revision-history and approval-signature
+  blocks (commonly authored as tables) are no longer falsely reported MISSING.
+- **Uncaught `UnicodeDecodeError` on non-UTF-8 `.txt`** — surfaces a clear,
+  actionable `ValueError` instead of a raw traceback.
+
+### Added
+- **Response shape validation** — `parse_claude_response()` now verifies that
+  `findings` is a non-empty list and that every finding carries a valid status
+  (`PRESENT` / `INCOMPLETE` / `MISSING`), failing fast on malformed model output.
+
 ---
 
 ## [1.3.0] — 2026-05-16
