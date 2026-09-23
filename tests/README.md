@@ -2,17 +2,18 @@
 
 Two tiers — one needs no API key, one does.
 
-## Offline smoke test (no API key)
+## Offline pytest suite (no API key)
 
-Locks in the robustness fixes (XML-escaping, empty-findings guard, `.docx`
-tables, response-shape validation, non-UTF-8 handling) and confirms a PDF
-renders. Run on every change.
+`test_sop_review.py` covers the 21 CFR 820 gap-analysis pipeline end to end: checklist
+assembly, `.txt`/`.docx`/`.pdf` ingestion, response-shape validation, PDF rendering
+(XML-escaping, empty-findings guard), retry behaviour and the CLI, plus the optional Part 11
+hook. The Claude API is mocked; no test makes a live call. CI runs it on every push.
 
 ```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |  macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-python tests/smoke_test.py
+pip install -r requirements.txt pytest pytest-cov
+pytest tests/ --cov=sop_review --cov=part11 --cov-fail-under=90
 ```
 
 ## Online re-validation (requires ANTHROPIC_API_KEY)

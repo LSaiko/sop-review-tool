@@ -22,6 +22,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 import anthropic
+import part11
 import pdfplumber
 from docx import Document
 from reportlab.lib import colors
@@ -881,7 +882,7 @@ def main() -> None:
     """Main entry point — orchestrates file reading, API call, and PDF generation."""
     args = parse_args()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
         print(
             "ERROR: ANTHROPIC_API_KEY environment variable is not set.\n"
@@ -939,6 +940,21 @@ def main() -> None:
     )
 
     print(f"\nDone. Report saved to: {args.output}")
+
+    # Optional 21 CFR Part 11 hook: only when PART11_AUDIT_URL is set. A failure here never
+    # fails the review; it is reported so the record can be submitted again.
+    if part11.base_url():
+        try:
+            rec = part11.record_review(
+                review_data, Path(args.file).name, args.sop_type, args.device_class
+            )
+            print(
+                f"Part 11: review recorded as {rec['record_id']} "
+                f"(sha256 {rec['record_hash']}). Approve with:\n"
+                f"  python part11.py sign --record-id {rec['record_id']} --signer <approver>"
+            )
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARNING: Part 11 audit trail not updated — {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":
