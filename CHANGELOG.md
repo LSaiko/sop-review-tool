@@ -7,6 +7,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- **pytest suite + GitHub Actions CI** — `tests/test_sop_review.py` replaces
+  `smoke_test.py`; the Claude API is mocked, coverage gated at 90% on Python 3.10–3.13.
+- **Optional 21 CFR Part 11 hook** (`part11.py`) — with `PART11_AUDIT_URL` set, a completed
+  review is stored in part11-audit-trail and logged via `POST /events`; an approver signs it
+  with `python part11.py sign` (`POST /sign`, `meaning: approved`). Unset, nothing changes.
+
+### Changed
+- API key read with `os.getenv("ANTHROPIC_API_KEY")` (was `os.environ.get`; equivalent, no
+  key was ever hardcoded).
+
 ### Fixed
 - **ZeroDivisionError on empty findings** — the summary scorecard now shows a
   pass rate of `N/A` instead of crashing when Claude returns no findings.
@@ -26,7 +37,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   (`PRESENT` / `INCOMPLETE` / `MISSING`), failing fast on malformed model output.
 - **`LICENSE` file** — Added the full MIT license text (README previously
   claimed MIT without a corresponding file).
-- **Test harness** (`tests/`) — `smoke_test.py` (offline, no API key) locks in
+- **Test harness** (`tests/`) — `smoke_test.py` (offline, no API key; since replaced by `test_sop_review.py`) locks in
   the robustness fixes and PDF rendering; `revalidate.py` (online) drives the
   full CLI against every example SOP and compares to the documented baseline,
   for re-validating after a model upgrade. `tests/README.md` documents both.

@@ -1,5 +1,12 @@
 # SOP Compliance Review Tool
 
+[![CI](https://github.com/LSaiko/sop-review-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/LSaiko/sop-review-tool/actions/workflows/ci.yml)
+[![Coverage ≥90%](https://img.shields.io/badge/coverage-%E2%89%A590%25-brightgreen.svg)](.github/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![FDA 21 CFR 820](https://img.shields.io/badge/FDA-21%20CFR%20820-red.svg)](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820)
+[![21 CFR Part 11 hook](https://img.shields.io/badge/21%20CFR%20Part%2011-optional%20e--signature-f97316)](#part-11-integration)
+
 An AI-powered CLI tool for **preliminary assessment** of Standard Operating Procedures against the **21 CFR Part 820** Quality System Regulation. Generates color-coded PDF reports to support — not replace — qualified human review.
 
 > **Important:** This tool is for preliminary, first-pass gap analysis only. All findings must be validated and finalized by a qualified Regulatory Affairs or Quality Assurance professional before any action is taken.
@@ -201,6 +208,65 @@ python sop_review.py --file PATH --device-class {I,II,III} --sop-type TYPE [--ou
 
 ---
 
+## Part 11 Integration
+
+A completed 21 CFR 820 SOP review is an electronic record that a QA approver signs. When
+`PART11_AUDIT_URL` is set, `sop_review.py` sends it to a
+[part11-audit-trail](https://github.com/LSaiko/part11-audit-trail) service after the PDF is
+written; when it is unset, nothing is sent and the tool behaves exactly as before.
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `PART11_AUDIT_URL` | No (enables the hook) | Base URL of part11-audit-trail, e.g. `http://localhost:8011` |
+| `PART11_AUDIT_TOKEN` | Only if the service sets `AUDIT_INTERNAL_TOKEN` | Sent as `X-Audit-Token` on `POST /events` |
+
+What happens (all in [`part11.py`](part11.py), stdlib `urllib` only):
+
+1. `PUT /records/sop_review/{record_id}` stores the review (findings plus SOP filename, type,
+   device class, timestamp) as a Part 11 record; the service hashes it (sha256, canonical JSON)
+   and logs a `create` entry.
+2. `POST /events` appends a `sop_review:completed` entry to the hash chain carrying that record
+   hash, attributed to the OS user who ran the review.
+3. The approver runs `python part11.py sign`, which calls `POST /sign` with
+   `meaning: "approved"`. The password is prompted, never read from argv or env.
+
+If the service is down or rejects the call, the review still completes and a `WARNING: Part 11
+audit trail not updated` line is printed; the tool never depends on the service being up.
+
+### Worked example
+
+```bash
+# Terminal 1: part11-audit-trail (demo users alice:alice-pw, bob:bob-pw)
+AUDIT_INTERNAL_TOKEN=local-token uvicorn app.main:app --port 8011
+
+# Terminal 2: review, then approve
+export PART11_AUDIT_URL=http://localhost:8011 PART11_AUDIT_TOKEN=local-token
+python sop_review.py --file sample_sop.txt --sop-type cleaning --device-class II
+#   Part 11: review recorded as sample_sop-20260923T034906959677Z (sha256 7e3098…). Approve with:
+#     python part11.py sign --record-id sample_sop-20260923T034906959677Z --signer <approver>
+python part11.py sign --record-id sample_sop-20260923T034906959677Z --signer alice
+#   Password for alice:
+#   { "id": "0184b45e-…", "signer": "alice", "meaning": "approved",
+#     "signed_record_hash": "7e3098…", "signature_value": "2KKh…" }
+python part11.py verify --signature-id 0184b45e-…
+#   { "signature_valid": true, "record_hash_matches": true, … }
+```
+
+The resulting trail for the record (`GET /audit-trail/{record_id}`), from a real run:
+
+```
+Admin  create                7e3098…
+Admin  sop_review:completed  7e3098…
+alice  esign:auth_failed     None      # a wrong password is logged, never the password itself
+alice  esign:approved        7e3098…
+```
+
+This makes the signature a 21 CFR Part 11 e-signature over the review record. It does not make
+the AI review itself a validated 21 CFR 820 quality record; the qualified-reviewer caveats
+below still apply.
+
+---
+
 ## PDF Report Structure
 
 Each generated report contains:
@@ -253,6 +319,9 @@ Each generated report contains:
 ```
 sop-review-tool/
 ├── sop_review.py                               # Main CLI application
+├── part11.py                                   # Optional Part 11 hook (record, audit event, e-signature)
+├── .github/workflows/ci.yml                    # pytest + coverage gate, Python 3.10–3.13
+├── tests/                                      # pytest suite (Claude mocked) + online revalidate.py
 ├── sample_sop.txt                              # Demo SOP with intentional gaps (cleaning, Class II)
 ├── requirements.txt                            # Python dependencies
 ├── README.md                                   # This file
@@ -286,6 +355,11 @@ sop_review.py
     ├── _make_styles()
     ├── _scorecard_table()
     └── _findings_table()
+
+part11.py (only when PART11_AUDIT_URL is set)
+├── record_review()          — PUT /records + POST /events after a review
+├── sign_approval()          — POST /sign, meaning="approved"
+└── verify_signature()       — GET /verify-signature/{id}
 ```
 
 **Model:** `claude-opus-4-8`  
